@@ -1,4 +1,24 @@
 <resources>
     <string name="app_name">Trips</string>
     <string name="action_settings">Settings</string>
+    
+    <string-array name="cities">
+        <item>Boston</item>
+        <item>New York</item>
+        <item>Chicago</item>
+    </string-array>
+
+
+    <string-array name="classes">
+        <item>First Class</item>
+        <item>Business Class</item>
+        <item>Coach</item>
+    </string-array>
+
+
+    <string-array name="flyingTo">
+        <item>Boston</item>
+        <item>Chicago</item>
+        <item>New York</item>
+    </string-array>
 </resources>
