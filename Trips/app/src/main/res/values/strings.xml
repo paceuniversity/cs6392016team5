@@ -37,4 +37,9 @@
     <string name="title_activity_buddy_lay">BuddyLayActivity</string>
     <string name="title_activity_hotel_upgrade">HotelUpgradeActivity</string>
     <string name="title_activity_choose">ChooseActivityActivity</string>
+    <string name="arnold_schwarzenegger"><b><i>Arnold Schwarzenegger</i></b></string>
+    <string name="about_arnold_schwarzenegger">Arnold is a very successful bodybuilder, actor and politician. He will enlighten you with insight on how to flex your bex! He will teach you the mindset of successful actors. He will also teach you how to detect a lie! Pick him now!</string>
+    <string name="tim_cook"><b><i>Tim Cook</i></b></string>
+    <string name="about_tim_cook">Tim is a genius. He is a successful programmer, a successful business man and a great public speaker. He will show you all the features of the IPhone that you don't know about! He will also teach you how to take care of your business. Pick him. </string>
+
 </resources>
