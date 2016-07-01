@@ -364,7 +364,8 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/travelBuddy"
-                    android:id="@+id/textView12" />
+                    android:id="@+id/travelBuddyText"
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -449,13 +450,13 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Medium Text"
-                        android:id="@+id/textView16" />
+                        android:id="@+id/red" />
 
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Book it"
-                        android:id="@+id/button8" />
+                        android:id="@+id/test1" />
                 </LinearLayout>
 
 
