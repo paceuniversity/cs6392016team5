@@ -363,7 +363,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Find a travel buddy."
+                    android:text="@string/travelBuddy"
                     android:id="@+id/textView12" />
 
                 <TextView

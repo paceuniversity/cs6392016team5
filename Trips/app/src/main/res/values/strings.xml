@@ -8,6 +8,16 @@
         <item>Chicago</item>
     </string-array>
 
+    <string name="travelBuddy"><b><u>Find a Travel Buddy!</u></b></string>
+
+    <string name="website"><b><u>Website!</u></b></string>
+
+    <string name="map"><b><u>Map It!</u></b></string>
+
+    <string name="gallery"><b><u>Gallery!</u></b></string>
+
+    <string name="youtubeVid"><b><u>Watch a YouTube Video!</u></b></string>
+
 
     <string-array name="classes">
         <item>First Class</item>
