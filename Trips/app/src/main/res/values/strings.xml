@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Trips</string>
+    <string name="travelBud">Find Buddies</string>
     <string name="action_settings">Settings</string>
-    
+
     <string-array name="cities">
         <item>Boston</item>
         <item>New York</item>
@@ -31,4 +32,9 @@
         <item>Chicago</item>
         <item>New York</item>
     </string-array>
+    <string name="title_activity_find_abuddy">FindABuddyActivity</string>
+    <string name="title_activity_find_buddy">FindBuddyActivity</string>
+    <string name="title_activity_buddy_lay">BuddyLayActivity</string>
+    <string name="title_activity_hotel_upgrade">HotelUpgradeActivity</string>
+    <string name="title_activity_choose">ChooseActivityActivity</string>
 </resources>
