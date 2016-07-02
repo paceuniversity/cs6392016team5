@@ -10,12 +10,13 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     TextView travelBuddy;
     Button test1,test2;
-
+    RadioButton button1, button2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        button1 = (RadioButton) findViewById(R.id.radioButton1);
+        button2 = (RadioButton) findViewById(R.id.radioButton2);
+
     }
 
 
@@ -73,4 +77,18 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+    public void radioMethod(View v){
+        RadioButton button =(RadioButton) v;
+        if(button.equals(button1)){
+            button2.setChecked(false);
+        }
+        else if (button.equals(button2)){
+            button1.setChecked(false);
+
+
+        }
+
+    }
+
+
 }
