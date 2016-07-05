@@ -11,6 +11,14 @@
     android:orientation="vertical"
     android:weightSum="1">
 
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Without Air Transfer"
+        android:id="@+id/radioButton2"
+        android:layout_weight="1"
+        android:onClick="radioMethod"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,285 +28,259 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                android:layout_height="match_parent">
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginBottom="17dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Create Your Own Itinerary!"
-                    android:id="@+id/textView"
                     android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:textSize="30dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginBottom="17dp">
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="With Air Transfer"
-                    android:id="@+id/radioButton1"
-                    android:layout_weight=".5"
-                    android:onClick="radioMethod"/>
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Without Air Transfer"
-                    android:id="@+id/radioButton2"
-                    android:layout_weight=".5"
-                    android:onClick="radioMethod"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginBottom="17dp">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".5">
+                    android:layout_marginBottom="17dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="@string/flying_from"
-                        android:id="@+id/textView2"
-                        android:layout_weight=".5"
-                        android:layout_marginBottom="10dp" />
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Create Your Own Itinerary!"
+                        android:id="@+id/textView"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:textSize="30dp" />
+                </LinearLayout>
 
-                    <Spinner
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="17dp">
+
+                    <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/spinner"
+                        android:text="With Air Transfer"
+                        android:id="@+id/radioButton1"
+                        android:layout_weight=".5"
+                        android:onClick="radioMethod"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="17dp">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="@string/flying_from"
+                            android:id="@+id/textView2"
+                            android:layout_weight=".5"
+                            android:layout_marginBottom="10dp" />
+
+                        <Spinner
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/spinner"
+                            android:entries="@array/cities"
+                            android:layout_weight=".5"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Class: "
+                            android:id="@+id/textView3"
+                            android:layout_weight=".5"
+                            android:layout_marginBottom="10dp" />
+
+                        <Spinner
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/spinner2"
+                            android:entries="@array/classes"
+                            android:layout_weight=".5"
+                            android:layout_marginBottom="10dp" />
+
+                        <Spinner
+                            android:id="@+id/roomCntSpin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"/>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="17dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".3">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Adults:"
+                            android:id="@+id/textView4"
+                            android:layout_weight=".5" />
+
+                        <Spinner
+                            android:id="@+id/adltCntSpin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".5"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".3">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Children:"
+                            android:id="@+id/textView5"
+                            android:layout_weight=".5" />
+                        <Spinner
+                            android:id="@+id/chldrnCntSpin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".5"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".3">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Room:"
+                            android:id="@+id/textView6"
+                            android:layout_weight=".5" />
+                    </LinearLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="@android:color/black"
+                    android:layout_marginBottom="15dp" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="17dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/flying_to"
+                        android:id="@+id/textView7"
+                        android:layout_weight="1" />
+                    <Spinner
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinner3"
                         android:entries="@array/cities"
-                        android:layout_weight=".5"
-                        android:layout_marginBottom="10dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".5">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Class: "
-                        android:id="@+id/textView3"
-                        android:layout_weight=".5"
-                        android:layout_marginBottom="10dp" />
-
-                    <Spinner
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/spinner2"
-                        android:entries="@array/classes"
-                        android:layout_weight=".5"
-                        android:layout_marginBottom="10dp" />
-
+                        android:layout_weight="1" />
 
                 </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="17dp"
-                android:layout_weight="1">
-
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".3">
-
+                    android:layout_marginBottom="17dp"
+                    android:layout_weight="1">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Adults:"
-                        android:id="@+id/textView4"
-                        android:layout_weight=".5" />
-                    <EditText
+                        android:text="Arriving:"
+                        android:id="@+id/textView8"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/textView301"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/date_selected"
+                        android:layout_weight="1"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <Button
+                        android:id="@+id/button1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="setDate"
+                        android:layout_weight="1"
+                        android:text="@string/date_button_set" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="17dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Nights:"
+                        android:id="@+id/textView9"
+                        android:layout_weight=".5" />
+                    <!-- <EditText
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:clickable="true"
                         android:cursorVisible="false"
                         android:focusable="false"
+                        android:id="@+id/textView12"
                         android:hint="..."
-                        android:layout_weight=".5" />
+                        android:layout_weight=".5" />-->
                 </LinearLayout>
-
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".3">
+                    android:layout_marginBottom="17dp"
+                    android:layout_weight="1">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Children:"
-                        android:id="@+id/textView5"
-                        android:layout_weight=".5" />
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:cursorVisible="false"
-                        android:focusable="false"
-                        android:hint="..."
-                        android:layout_weight=".5" />
+
                 </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".3">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Room:"
-                        android:id="@+id/textView6"
-                        android:layout_weight=".5" />
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:cursorVisible="false"
-                        android:focusable="false"
-                        android:hint="..."
-                        android:layout_weight=".5" />
-                </LinearLayout>
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="4dp"
-                android:background="@android:color/black"
-                android:layout_marginBottom="15dp" />
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="17dp"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/flying_to"
-                    android:id="@+id/textView7"
-                    android:layout_weight=".3" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Arriving:"
-                    android:id="@+id/textView8"
-                    android:layout_weight=".3" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Nights:"
-                    android:id="@+id/textView9"
-                    android:layout_weight=".3" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="17dp"
-                android:layout_weight="1">
-
-                <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/spinner3"
-                    android:entries="@array/cities"
-                    android:layout_weight=".3" />
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:cursorVisible="false"
-                    android:focusable="false"
-                    android:id="@+id/flyingToDatePick"
-                    android:hint="Click to pick date"
-                    android:layout_weight=".3" />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:cursorVisible="false"
-                    android:focusable="false"
-                    android:hint="..."
-                    android:layout_weight=".3" />
-            </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="17dp"
-            android:layout_weight="2">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Medium Text"
-                android:id="@+id/textView10"
-                android:layout_weight=".3" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Remove"
-                android:id="@+id/button"
-                android:layout_weight=".3"
-                android:background="#ffffff" />
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:cursorVisible="false"
-                android:focusable="false"
-                android:hint="..."
-                android:layout_weight=".3" />
-        </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -306,21 +288,21 @@
                 android:layout_marginBottom="17dp"
                 android:layout_weight="2">
 
-                <TextView
+               <!-- <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Medium Text"
-                    android:id="@+id/textView10"
-                    android:layout_weight=".3" />
+                    android:id="@+id/textView15"
+                    android:layout_weight=".3" /> -->
 
-                <Button
+                <!-- <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Remove"
-                    android:id="@+id/button"
+                    android:id="@+id/button4"
                     android:layout_weight=".3"
-                    android:background="#ffffff" />
+                    android:background="#ffffff" /> -->
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -330,187 +312,218 @@
                     android:hint="..."
                     android:layout_weight=".3" />
             </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="17dp"
-            android:layout_weight="1">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="17dp"
+                    android:layout_weight="2">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Medium Text"
+                        android:id="@+id/textView10"
+                        android:layout_weight=".3" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add City"
-                android:id="@+id/button2"
-                android:layout_weight=".5" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="I'm done"
-                android:id="@+id/button3"
-                android:layout_weight=".5" />
-        </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="4dp"
-                android:background="@android:color/black"
-                android:layout_marginBottom="15dp" />
-
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Remove"
+                        android:id="@+id/button"
+                        android:layout_weight=".3"
+                        android:background="#ffffff" />
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:hint="..."
+                        android:layout_weight=".3" />
+                </LinearLayout>
             <LinearLayout
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="17dp"
                 android:layout_weight="1">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Do you not want to travel alone?"
-                    android:id="@+id/textView11" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/travelBuddy"
-                    android:id="@+id/travelBuddyText"
-                    />
 
-                <TextView
+                <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="TOP DEALS"
-                    android:id="@+id/textView13"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="30dp" />
+                    android:text="Add City"
+                    android:id="@+id/button2"
+                    android:layout_weight=".5" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I'm done"
+                    android:id="@+id/button3"
+                    android:layout_weight=".5" />
             </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="@android:color/black"
+                    android:layout_marginBottom="15dp" />
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="17dp"
-                    android:layout_weight=".3">
-
-
-                    <ImageView
+                    android:layout_weight="1">
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/imageVie99"
-
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitCenter"
-                        android:layout_marginLeft="3dp"                        android:maxHeight="200dp"
-                        android:maxWidth="130dp"
-                        android:layout_marginRight="10dp" />
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Do you not want to travel alone?"
+                        android:id="@+id/textView11" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="London and Paris By Air. \n6 Nights"
-                        android:id="@+id/textView14" />
+                        android:text="@string/travelBuddy"
+                        android:id="@+id/travelBuddyText"
+                        />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="From $1300"
-                        android:id="@+id/textView34" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Book it"
-                        android:id="@+id/button4" />
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="TOP DEALS"
+                        android:id="@+id/textView13"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="30dp" />
                 </LinearLayout>
+
                 <LinearLayout
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="17dp"
-                    android:layout_weight=".3">
-                    <ImageView
-                        android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/imageView9"
+                        android:layout_marginBottom="17dp"
+                        android:layout_weight=".3">
 
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitCenter"
-                        android:layout_marginLeft="3dp"                        android:maxHeight="200dp"
-                        android:maxWidth="130dp"
-                        android:layout_marginRight="10dp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/imageVie99"
+
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter"
+                            android:layout_marginLeft="3dp"                        android:maxHeight="200dp"
+                            android:maxWidth="130dp"
+                            android:layout_marginRight="10dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="London and Paris By Air. \n6 Nights"
+                            android:id="@+id/textView14" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="From $1300"
+                            android:id="@+id/textView34" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Book it"
+                            android:id="@+id/button4" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Best of The Middle East. \n12 Nights"
-                        android:id="@+id/textView15" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="From $1700"
-                        android:id="@+id/textView1" />
+                        android:layout_marginBottom="17dp"
+                        android:layout_weight=".3">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/imageView9"
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Book it"
-                        android:id="@+id/button5" />
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter"
+                            android:layout_marginLeft="3dp"                        android:maxHeight="200dp"
+                            android:maxWidth="130dp"
+                            android:layout_marginRight="10dp" />
 
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="17dp"
-                    android:layout_weight=".3">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Best of The Middle East. \n12 Nights"
+                            android:id="@+id/textView15" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="From $1700"
+                            android:id="@+id/textView1" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/imageView99"
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Book it"
+                            android:id="@+id/button5" />
 
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitCenter"
-                        android:layout_marginLeft="3dp"                        android:maxHeight="200dp"
-                        android:maxWidth="130dp"
-                        android:layout_marginRight="10dp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="17dp"
+                        android:layout_weight=".3">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Best of Asian Countries and Russia. \n10 Nights"
-                        android:id="@+id/red" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="From $2900"
-                        android:id="@+id/red2" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/imageView99"
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Book it"
-                        android:id="@+id/test1" />
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter"
+                            android:layout_marginLeft="3dp"                        android:maxHeight="200dp"
+                            android:maxWidth="130dp"
+                            android:layout_marginRight="10dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Best of Asian Countries and Russia. \n10 Nights"
+                            android:id="@+id/red" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="From $2900"
+                            android:id="@+id/red2" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Book it"
+                            android:id="@+id/test1" />
+                    </LinearLayout>
+
+
                 </LinearLayout>
 
 
             </LinearLayout>
-
-
-        </LinearLayout>
     </ScrollView>
 </LinearLayout>

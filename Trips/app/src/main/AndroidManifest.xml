@@ -43,13 +43,13 @@
                 android:value="app.ui.cbrobbi.com.trips.MainActivity" />
         </activity>
         <activity
-            android:name=".ChooseActivityActivity"
-            android:label="@string/title_activity_choose"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="app.ui.cbrobbi.com.trips.MainActivity" />
+        android:name=".ChooseActivityActivity"
+        android:label="@string/title_activity_choose"
+        android:parentActivityName=".MainActivity"
+        android:theme="@style/AppTheme.NoActionBar">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="app.ui.cbrobbi.com.trips.MainActivity" />
         </activity>
     </application>
 

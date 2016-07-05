@@ -2,7 +2,7 @@
     <string name="app_name">Trips</string>
     <string name="travelBud">Find Buddies</string>
     <string name="action_settings">Settings</string>
-
+    <string name="hint">Arriving</string>
     <string-array name="cities">
         <item>Montgomery, AL</item>
         <item>Little Rock, AR</item>
@@ -105,4 +105,8 @@
         flagship brand and one of the largest hotel brands in the world. The brand is targeted
         at both business and leisure travelers with locations in major city centers, near airports,
         convention centers, and popular vacation destinations around the world.</string>
+    <string name="date_label_set">Press the button to set the date</string>
+    <string name="date_button_set">Set Date</string>
+    <string name="date_view_set">The Date is: </string>
+    <string name="date_selected"></string>
 </resources>
