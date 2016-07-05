@@ -12,33 +12,60 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
-
-import android.widget.RadioButton;
+import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
     TextView travelBuddy;
     Button test1,test2;
     RadioButton button1, button2;
+    RadioGroup with_without_air_radioGroup;
+    ArrayAdapter<CharSequence> adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout.activity_main);
+        setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // switching between with air fragment and without air fragment
+        RadioGroup with_without_air_radioGroup = (RadioGroup) findViewById(R.id.with_without_air);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+        with_without_air_radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener()
+        {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // checkedId is the RadioButton selected
+
+                switch(checkedId) {
+                    case R.id.with_air_button:
+                        Toast.makeText(MainActivity.this, "with air", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.without_air_button:
+                        Toast.makeText(MainActivity.this, "without air", Toast.LENGTH_SHORT).show();
+                        break;
+
+                }
             }
         });
+
+
+
+        Spinner spinner_departure_cities = (Spinner) findViewById(R.id.departure_cities_spinner);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.departure_cities, R.layout.spinner_layout);
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        spinner_departure_cities.setAdapter(adapter);
+
+
         travelBuddy = (TextView) findViewById(R.id.travelBuddyText);
         travelBuddy.setOnClickListener(new View.OnClickListener(){
                                            @Override
@@ -57,8 +84,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        button1 = (RadioButton) findViewById(R.id.radioButton1);
-        button2 = (RadioButton) findViewById(R.id.radioButton2);
+
+
+
 
 
     }
@@ -98,6 +126,24 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.with_air_button:
+                if (checked)
+                   Toast.makeText(MainActivity.this, "with air", Toast.LENGTH_SHORT).show();
+                    break;
+            case R.id.without_air_button:
+                if (checked)
+                    Toast.makeText(MainActivity.this, "without air", Toast.LENGTH_SHORT).show();
+                    break;
+        }
+    }
+
 
 
 }

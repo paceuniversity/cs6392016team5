@@ -44,7 +44,7 @@
         </activity>
         <activity
             android:name=".ChooseActivityActivity"
-            android:label="@string/title_activity_choose"
+            android:label=".ChooseActivityActivity"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

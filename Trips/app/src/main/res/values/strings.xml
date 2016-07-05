@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Trips</string>
+    <string name="app_name">Trip Guru</string>
     <string name="travelBud">Find Buddies</string>
     <string name="action_settings">Settings</string>
 
-    <string-array name="cities">
+    <string-array name="departure_cities">
         <item>Montgomery, AL</item>
         <item>Little Rock, AR</item>
         <item>Phoenix, AZ</item>
