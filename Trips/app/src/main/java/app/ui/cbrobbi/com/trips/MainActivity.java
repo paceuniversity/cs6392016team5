@@ -1,6 +1,8 @@
 package app.ui.cbrobbi.com.trips;
 
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -8,12 +10,15 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.NumberPicker;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -21,13 +26,24 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 
 public class MainActivity extends AppCompatActivity {
-    TextView travelBuddy;
+
+
     Button test1,test2;
     RadioButton button1, button2;
     RadioGroup with_without_air_radioGroup;
     ArrayAdapter<CharSequence> adapter;
+    private DatePicker datePicker;
+    private Calendar calendar;
+    private TextView dateView;
+    private int year, month, day;
+    TextView travelBuddy;
+    Spinner adltCntSpin, roomSpin, chldrnSpin;
+    private static final String [] numbCount = {"1","2","3","4","5"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,10 +76,17 @@ public class MainActivity extends AppCompatActivity {
 
         Spinner spinner_departure_cities = (Spinner) findViewById(R.id.departure_cities_spinner);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.departure_cities, R.layout.spinner_layout);
-        adapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
-        spinner_departure_cities.setAdapter(adapter);
+        ArrayAdapter<CharSequence> adapter_cities = ArrayAdapter.createFromResource(this,
+                R.array.cities, R.layout.spinner_layout);
+        adapter_cities.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        spinner_departure_cities.setAdapter(adapter_cities);
+
+        Spinner spinner_rooms_num = (Spinner) findViewById(R.id.room_num_spinner);
+        ArrayAdapter<CharSequence> adapter_rooms = ArrayAdapter.createFromResource(this,R.array.numbers, R.layout.spinner_layout);
+        adapter_rooms.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        spinner_rooms_num.setAdapter(adapter_rooms);
+
+
 
 
         travelBuddy = (TextView) findViewById(R.id.travelBuddyText);
@@ -85,11 +108,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        dateView = (TextView) findViewById(R.id.textView301);
+        calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
 
-
-
+        month = calendar.get(Calendar.MONTH);
+        day = calendar.get(Calendar.DAY_OF_MONTH);
+        showDate(year, month+1, day);
 
     }
+
+    @SuppressWarnings("deprecation")
+    public void setDate(View view) {
+        showDialog(999);
+        Toast.makeText(getApplicationContext(), "ca", Toast.LENGTH_SHORT)
+                .show();
+    }
+
+
+
 
 
     @Override
@@ -114,35 +151,37 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void radioMethod(View v){
-        RadioButton button =(RadioButton) v;
-        if(button.equals(button1)){
-            button2.setChecked(false);
+    public void onValueChange(NumberPicker picker, int oldVal, int newVal)
+    {
+        Log.i("Main Numb Picker Adult", ""+newVal);
+    }
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        // TODO Auto-generated method stub
+        if (id == 999) {
+            return new DatePickerDialog(this, myDateListener, year, month, day);
         }
-        else if (button.equals(button2)){
-            button1.setChecked(false);
-
-
-        }
-
+        return null;
     }
 
-    public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
-
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.with_air_button:
-                if (checked)
-                   Toast.makeText(MainActivity.this, "with air", Toast.LENGTH_SHORT).show();
-                    break;
-            case R.id.without_air_button:
-                if (checked)
-                    Toast.makeText(MainActivity.this, "without air", Toast.LENGTH_SHORT).show();
-                    break;
+    private DatePickerDialog.OnDateSetListener myDateListener = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3) {
+            // TODO Auto-generated method stub
+            // arg1 = year
+            // arg2 = month
+            // arg3 = day
+            showDate(arg1, arg2+1, arg3);
         }
+    };
+
+
+    private void showDate(int year, int month, int day) {
+        dateView.setText(new StringBuilder().append(day).append("/")
+                .append(month).append("/").append(year));
     }
+
+
 
 
 

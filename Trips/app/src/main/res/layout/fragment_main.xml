@@ -102,7 +102,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/departure_cities_spinner"
-                        android:entries="@array/departure_cities"
+                        android:entries="@array/cities"
                         android:layout_weight=".5"
                         android:layout_marginBottom="10dp" />
                 </LinearLayout>
@@ -230,20 +230,13 @@
                         android:layout_width="fill_parent"
                         android:layout_height="40dp">
 
-                        <EditText
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:height="40dp"
-                            android:paddingLeft="5dp"
-                            android:inputType="number"
-                            android:clickable="true"
-                            android:cursorVisible="false"
-                            android:focusable="false"
-                            android:hint="enter a number"
-                            android:textSize="15dp"
+                        <Spinner
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/room_num_spinner"
+                            android:entries="@array/numbers"
                             android:layout_weight=".5"
-                            android:id="@+id/rooms_num"
-                            android:background="@drawable/edittext_design" />
+                            android:layout_marginBottom="10dp" />
 
                     </FrameLayout>
                 </LinearLayout>
@@ -279,7 +272,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:id="@+id/arriving_cities_spinner"
-                            android:entries="@array/departure_cities"
+                            android:entries="@array/cities"
                             android:layout_weight=".3" />
 
 
@@ -304,19 +297,28 @@
                         android:layout_width="fill_parent"
                         android:layout_height="40dp"
                         android:paddingRight="10dp">
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3">
 
-                        <EditText
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:paddingLeft="5dp"
-                            android:inputType="number"
-                            android:clickable="true"
-                            android:cursorVisible="false"
-                            android:focusable="false"
-                            android:id="@+id/flyingToDatePick"
-                            android:hint="Pick a date"
-                            android:layout_weight=".3"
-                            android:background="@drawable/edittext_design" />
+                            <TextView
+                                android:id="@+id/textView301"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/date_selected"
+                                android:layout_weight="1"
+                                android:textAppearance="?android:attr/textAppearanceMedium" />
+                            <Button
+                                android:id="@+id/button1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:onClick="setDate"
+                                android:layout_weight="1"
+                                android:text="@string/date_button_set" />
+
+                        </LinearLayout>
 
                     </FrameLayout>
                 </LinearLayout>
@@ -331,8 +333,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Room:"
-                        android:id="@+id/room_desc"
+                        android:text="Nights"
+                        android:id="@+id/nights_desc"
                         android:layout_weight=".5" />
                     <FrameLayout
                         android:layout_width="fill_parent"
@@ -341,6 +343,7 @@
                         <EditText
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
+                            android:id="@+id/nights_desc"
                             android:inputType="number"
                             android:clickable="true"
                             android:cursorVisible="false"
