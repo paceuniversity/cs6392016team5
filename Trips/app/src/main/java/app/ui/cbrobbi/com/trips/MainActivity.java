@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
     private int year, month, day;
     TextView travelBuddy;
     EditText nightsNumber,nights1,nights2, adult, children, room;
-    Spinner spinner_departure_cities;
 
     Spinner adltCntSpin, roomSpin, chldrnSpin;
     private static final String [] numbCount = {"1","2","3","4","5"};
@@ -115,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        dateView = (TextView) findViewById(R.id.date_selected);
+        dateView = (TextView) findViewById(R.id.textView301);
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
 
@@ -298,34 +297,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
-
-    }
-
-
-    public void im_done(View view) {
-
-
-        Spinner spinner_departure_cities = (Spinner) findViewById(R.id.departure_cities_spinner);
-        Spinner spinner_cabin_class = (Spinner) findViewById(R.id.cabin_class_spinner);
-        Spinner spinner_rooms_num = (Spinner) findViewById(R.id.room_num_spinner);
-        Spinner spinner_arriving_city = (Spinner) findViewById(R.id.arriving_city_spinner);
-        TextView date_selected = (TextView) findViewById(R.id.date_selected);
-        EditText adults_num = (EditText) findViewById(R.id.adultNumber);
-        EditText children_num = (EditText) findViewById(R.id.childrenNumber);
-        EditText nights_num = (EditText) findViewById(R.id.nightNumber);
-
-        Intent imDoneIntent = new Intent (this, ImDoneActivity.class);
-        imDoneIntent.putExtra("departure_city", spinner_departure_cities.getSelectedItem().toString());
-        imDoneIntent.putExtra("cabin_class", spinner_cabin_class.getSelectedItem().toString());
-        imDoneIntent.putExtra("rooms_num", spinner_rooms_num.getSelectedItem().toString());
-        imDoneIntent.putExtra("arriving_city", spinner_arriving_city.getSelectedItem().toString());
-        imDoneIntent.putExtra("selected_date", date_selected.getText().toString());
-        imDoneIntent.putExtra("adults_number",Integer.parseInt(adults_num.getText().toString()));
-        imDoneIntent.putExtra("children_number",Integer.parseInt(children_num.getText().toString()));
-        imDoneIntent.putExtra("nights_number",Integer.parseInt(nights_num.getText().toString()));
-
-        startActivity(imDoneIntent);
-
 
     }
 
