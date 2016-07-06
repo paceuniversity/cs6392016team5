@@ -3,6 +3,7 @@ package app.ui.cbrobbi.com.trips;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,13 +12,16 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -41,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView dateView;
     private int year, month, day;
     TextView travelBuddy;
+    EditText nightsNumber,nights1,nights2, adult, children, room;
+
     Spinner adltCntSpin, roomSpin, chldrnSpin;
     private static final String [] numbCount = {"1","2","3","4","5"};
 
@@ -116,6 +122,104 @@ public class MainActivity extends AppCompatActivity {
         day = calendar.get(Calendar.DAY_OF_MONTH);
         showDate(year, month+1, day);
 
+
+
+
+
+
+
+
+
+        adult = (EditText) findViewById(R.id.adultNumber);
+        children = (EditText) findViewById(R.id.childrenNumber);
+        room = (EditText) findViewById(R.id.nightNumber);
+
+        nightsNumber = (EditText) findViewById(R.id.nightNumber);
+
+        //handle key presses, when one presses enter for nights,adult, children and room edittexts
+
+        nightsNumber.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode ==KeyEvent.KEYCODE_ENTER){
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(nightsNumber.getWindowToken(),0);
+                    nights1.setText(nightsNumber.getText().toString());
+                    nights2.setText(nightsNumber.getText().toString());
+                    nightsNumber.setCursorVisible(false);
+
+
+
+                }
+                return false;
+            }
+        });
+        adult.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode ==KeyEvent.KEYCODE_ENTER){
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(nightsNumber.getWindowToken(),0);
+                    adult.setText(adult.getText().toString());
+                    adult.setCursorVisible(false);
+
+
+
+                }
+                return false;
+            }
+        });
+        children.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode ==KeyEvent.KEYCODE_ENTER){
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(nightsNumber.getWindowToken(),0);
+                    children.setText(children.getText().toString());
+                    children.setCursorVisible(false);
+
+
+
+                }
+                return false;
+            }
+        });
+        room.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode ==KeyEvent.KEYCODE_ENTER){
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(nightsNumber.getWindowToken(),0);
+                    room.setText(room.getText().toString());
+                    room.setCursorVisible(false);
+
+
+
+                }
+                return false;
+            }
+        });
+
+
+
+    }
+
+    //handle the clikc on the edittext of night and others
+    public void setNumbers(View view){
+        int id= view.getId();
+        if(id== nightsNumber.getId()){
+            nightsNumber.setCursorVisible(true);
+        }
+        if (id== adult.getId()){
+            adult.setCursorVisible(true);
+
+        }
+        if(id==children.getId()){
+            children.setCursorVisible(true);
+        }
+        if(id==room.getId()){
+            room.setCursorVisible(true);
+        }
     }
 
     @SuppressWarnings("deprecation")
