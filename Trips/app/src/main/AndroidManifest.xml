@@ -17,9 +17,8 @@
         <activity
             android:name=".MainActivity"
             android:label="Trip Guru"
-            android:windowSoftInputMode="stateHidden"
-
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -53,6 +52,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="app.ui.cbrobbi.com.trips.MainActivity" />
         </activity>
+        <activity android:name=".ChooseActivity"></activity>
     </application>
 
 </manifest>
