@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Trip Guru</string>
+    <string name="app_name">Trips</string>
     <string name="travelBud">Find Buddies</string>
     <string name="action_settings">Settings</string>
-
-    <string-array name="departure_cities">
+    <string name="hint">Arriving</string>
+    <string-array name="cities">
         <item>Montgomery, AL</item>
         <item>Little Rock, AR</item>
         <item>Phoenix, AZ</item>
@@ -56,6 +56,19 @@
         <item>Cheyenne, WY</item>
     </string-array>
 
+    <string-array name="numbers">
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+    <item>4</item>
+    <item>5</item>
+    <item>6</item>
+    <item>7</item>
+    <item>8</item>
+    <item>9</item>
+    <item>10</item>
+    </string-array>
+
     <string name="travelBuddy"><b><u>Find a Travel Buddy!</u></b></string>
 
     <string name="website"><b><u>Website!</u></b></string>
@@ -105,4 +118,8 @@
         flagship brand and one of the largest hotel brands in the world. The brand is targeted
         at both business and leisure travelers with locations in major city centers, near airports,
         convention centers, and popular vacation destinations around the world.</string>
+    <string name="date_label_set">Press the button to set the date</string>
+    <string name="date_button_set">Set Date</string>
+    <string name="date_view_set">The Date is: </string>
+    <string name="date_selected"></string>
 </resources>
