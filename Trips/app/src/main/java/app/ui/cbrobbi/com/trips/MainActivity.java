@@ -59,24 +59,24 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // switching between with air fragment and without air fragment
-        RadioGroup with_without_air_radioGroup = (RadioGroup) findViewById(R.id.with_without_air);
-
-        with_without_air_radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener()
-        {
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // checkedId is the RadioButton selected
-
-                switch(checkedId) {
-                    case R.id.with_air_button:
-                        Toast.makeText(MainActivity.this, "with air", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.without_air_button:
-                        Toast.makeText(MainActivity.this, "without air", Toast.LENGTH_SHORT).show();
-                        break;
-
-                }
-            }
-        });
+//        RadioGroup with_without_air_radioGroup = (RadioGroup) findViewById(R.id.with_without_air);
+//
+//        with_without_air_radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener()
+//        {
+//            public void onCheckedChanged(RadioGroup group, int checkedId) {
+//                // checkedId is the RadioButton selected
+//
+//                switch(checkedId) {
+//                    case R.id.with_air_button:
+//                        Toast.makeText(MainActivity.this, "with air", Toast.LENGTH_SHORT).show();
+//                        break;
+//                    case R.id.without_air_button:
+//                        Toast.makeText(MainActivity.this, "without air", Toast.LENGTH_SHORT).show();
+//                        break;
+//
+//                }
+//            }
+//        });
 
 
 
@@ -285,6 +285,20 @@ public class MainActivity extends AppCompatActivity {
                 .append(month).append("/").append(year));
     }
 
+
+    ///radio button method
+    public void radioMethod(View v){
+        RadioButton button =(RadioButton) v;
+        if(button.equals(button1)){
+            button2.setChecked(false);
+        }
+        else if (button.equals(button2)){
+            button1.setChecked(false);
+
+
+        }
+
+    }
 
 
 
