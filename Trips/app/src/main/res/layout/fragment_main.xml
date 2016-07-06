@@ -63,7 +63,7 @@
                     android:layout_weight=".5"
                     android:onClick="radioMethod"
                     android:checked="true"
-                    android:buttonTint="#00a4e4" />
+                    android:buttonTint="#0065B8" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -72,7 +72,7 @@
                     android:id="@+id/without_air_button"
                     android:layout_weight=".5"
                     android:onClick="radioMethod"
-                    android:buttonTint="#00a4e4" />
+                    android:buttonTint="#0065B8" />
 </RadioGroup>
             </LinearLayout>
 
@@ -125,7 +125,7 @@
                     <Spinner
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/cabin_class"
+                        android:id="@+id/cabin_class_spinner"
                         android:entries="@array/classes"
                         android:layout_weight=".5"
                         android:layout_marginBottom="10dp" />
@@ -164,14 +164,14 @@
                             android:layout_height="fill_parent"
                             android:height="40dp"
                             android:paddingLeft="5dp"
+
                             android:inputType="number"
                             android:clickable="true"
-                            android:cursorVisible="false"
-                            android:focusable="false"
                             android:hint="enter a number"
                             android:textSize="15dp"
                             android:layout_weight=".5"
-                            android:id="@+id/adults_num"
+                            android:onClick="setNumbers"
+                            android:id="@+id/adultNumber"
                             android:background="@drawable/edittext_design" />
 
                     </FrameLayout>
@@ -203,11 +203,11 @@
                             android:inputType="number"
                             android:clickable="true"
                             android:cursorVisible="false"
-                            android:focusable="false"
+                            android:onClick="setNumbers"
                             android:hint="enter a number"
                             android:textSize="15dp"
                             android:layout_weight=".5"
-                            android:id="@+id/children_num"
+                            android:id="@+id/childrenNumber"
 
                             android:background="@drawable/edittext_design" />
                     </FrameLayout>
@@ -271,7 +271,7 @@
                         <Spinner
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
-                            android:id="@+id/arriving_cities_spinner"
+                            android:id="@+id/arriving_city_spinner"
                             android:entries="@array/cities"
                             android:layout_weight=".3" />
 
@@ -304,7 +304,7 @@
                             android:layout_weight=".3">
 
                             <TextView
-                                android:id="@+id/textView301"
+                                android:id="@+id/date_selected"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/date_selected"
@@ -316,6 +316,7 @@
                                 android:layout_height="wrap_content"
                                 android:onClick="setDate"
                                 android:layout_weight="1"
+                                android:textColor="#ffffff"
                                 android:text="@string/date_button_set" />
 
                         </LinearLayout>
@@ -343,12 +344,12 @@
                         <EditText
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
-                            android:id="@+id/nights_desc"
+                            android:id="@+id/nightNumber"
+                            android:onClick="setNumbers"
                             android:inputType="number"
                             android:clickable="true"
                             android:cursorVisible="false"
-                            android:focusable="false"
-                            android:hint="enter a number"
+                            android:hint="enter a number of nights"
                             android:paddingLeft="5dp"
                             android:layout_weight=".3"
                             android:background="@drawable/edittext_design" />
@@ -376,15 +377,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Add City"
-                android:id="@+id/button2"
-                android:layout_weight=".5" />
+                android:id="@+id/add_city"
+                android:layout_weight=".5"
+                android:textColor="#ffffff"
+                android:background="@drawable/button_design" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="I'm done"
-                android:id="@+id/button3"
-                android:layout_weight=".5" />
+                android:id="@+id/im_done_button"
+                android:textColor="#ffffff"
+                android:layout_weight=".5"
+                android:onClick="im_done"
+                android:nestedScrollingEnabled="false"
+                android:background="@drawable/button_design" />
         </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -424,6 +431,7 @@
                     android:layout_marginTop="30dp" />
             </LinearLayout>
 
+
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -440,8 +448,8 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/imageVie99"
-
+                        android:id="@+id/imageVie99"/>
+                       // android:src="@drawable/london"
                         android:adjustViewBounds="true"
                         android:scaleType="fitCenter"
                         android:layout_marginLeft="3dp"                        android:maxHeight="200dp"
@@ -476,8 +484,8 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/imageView9"
-
+                        android:id="@+id/imageView9"/>
+                        //android:src="@drawable/iran"
                         android:adjustViewBounds="true"
                         android:scaleType="fitCenter"
                         android:layout_marginLeft="3dp"                        android:maxHeight="200dp"
@@ -514,8 +522,8 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/imageView99"
-
+                        android:id="@+id/imageView99"/>
+                        //android:src="@drawable/japan"
                         android:adjustViewBounds="true"
                         android:scaleType="fitCenter"
                         android:layout_marginLeft="3dp"                        android:maxHeight="200dp"
