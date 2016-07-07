@@ -8,5 +8,4 @@ android:shape="rectangle">
     android:endColor="#039"
     android:type="linear" />
 
-<stroke android:width="2dp" android:color="#ffffff"/>
 <corners android:radius="5dp"/> </shape>

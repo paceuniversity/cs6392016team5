@@ -55,8 +55,16 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:id="@+id/with_without_air">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5">
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp">
                 <RadioButton
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="With Air Transfer"
                     android:id="@+id/with_air_button"
@@ -64,15 +72,28 @@
                     android:onClick="radioMethod"
                     android:checked="true"
                     android:buttonTint="#0065B8" />
+                    </FrameLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5">
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp">
 
                 <RadioButton
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="Without Air Transfer"
                     android:id="@+id/without_air_button"
                     android:layout_weight=".5"
                     android:onClick="radioMethod"
                     android:buttonTint="#0065B8" />
+                    </FrameLayout>
+                    </LinearLayout>
 </RadioGroup>
             </LinearLayout>
 
@@ -87,7 +108,8 @@
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".5">
+                    android:layout_weight=".5"
+                    android:layout_marginRight="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -97,38 +119,54 @@
                         android:id="@+id/textView2"
                         android:layout_weight=".5"
                         android:layout_marginBottom="10dp" />
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp">
 
                     <Spinner
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
                         android:id="@+id/departure_cities_spinner"
                         android:entries="@array/cities"
                         android:layout_weight=".5"
-                        android:layout_marginBottom="10dp" />
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/spinner_design"
+                        android:clickable="false"
+                        android:contextClickable="true"
+                        android:minHeight="40dp"
+                        android:popupBackground="#D3D5D3"/>
+                    </FrameLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".5">
+                    android:layout_weight=".5"
+                    android:layout_marginLeft="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Class: "
+                        android:text="Cabin Class: "
                         android:id="@+id/textView3"
                         android:layout_weight=".5"
                         android:layout_marginBottom="10dp" />
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp">
 
                     <Spinner
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
                         android:id="@+id/cabin_class_spinner"
                         android:entries="@array/classes"
                         android:layout_weight=".5"
-                        android:layout_marginBottom="10dp" />
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/spinner_design"
+                        android:minHeight="40dp" />
+                    </FrameLayout>
 
 
                 </LinearLayout>
@@ -228,15 +266,17 @@
                         android:layout_weight=".5" />
                     <FrameLayout
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp">
+                        android:layout_height="40dp"
+                        android:minHeight="40dp">
 
                         <Spinner
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="fill_parent"
+                            android:layout_height="40dp"
                             android:id="@+id/room_num_spinner"
                             android:entries="@array/numbers"
                             android:layout_weight=".5"
-                            android:layout_marginBottom="10dp" />
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/spinner_design" />
 
                     </FrameLayout>
                 </LinearLayout>
@@ -272,8 +312,10 @@
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:id="@+id/arriving_city_spinner"
-                            android:entries="@array/cities"
-                            android:layout_weight=".3" />
+                            android:entries="@array/visiting_cities"
+                            android:layout_weight=".3"
+                            android:background="@drawable/spinner_design"
+                            android:minHeight="40dp" />
 
 
                     </FrameLayout>
@@ -299,7 +341,7 @@
                         android:paddingRight="10dp">
                         <LinearLayout
                             android:orientation="horizontal"
-                            android:layout_width="wrap_content"
+                            android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight=".3">
 
@@ -312,12 +354,12 @@
                                 android:textAppearance="?android:attr/textAppearanceMedium" />
                             <Button
                                 android:id="@+id/button1"
-                                android:layout_width="wrap_content"
+                                android:layout_width="30dp"
                                 android:layout_height="wrap_content"
                                 android:onClick="setDate"
-                                android:layout_weight="1"
+                                android:layout_weight="0.38"
                                 android:textColor="#ffffff"
-                                android:text="@string/date_button_set"
+                                android:text="icon"
                                 android:background="@drawable/button_design" />
 
                         </LinearLayout>
@@ -360,6 +402,16 @@
                 </LinearLayout>
             </LinearLayout>
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/test">
+
+        </LinearLayout>
+
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -381,7 +433,9 @@
                 android:id="@+id/add_city"
                 android:layout_weight=".5"
                 android:textColor="#ffffff"
-                android:background="@drawable/button_design" />
+                android:background="@drawable/button_design"
+                android:layout_marginRight="30dp"
+                android:onClick="add_city"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -392,7 +446,8 @@
                 android:layout_weight=".5"
                 android:onClick="im_done"
                 android:nestedScrollingEnabled="false"
-                android:background="@drawable/button_design" />
+                android:background="@drawable/button_design"
+                android:layout_marginRight="30dp" />
         </LinearLayout>
             <View
                 android:layout_width="match_parent"
