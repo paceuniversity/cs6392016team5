@@ -2,10 +2,10 @@ package app.ui.cbrobbi.com.trips;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
@@ -13,25 +13,24 @@ import android.widget.Button;
 public class BuddyLayActivity extends AppCompatActivity {
     Button sms, email, call;
     Button sms2, email2;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buddy_lay);
-
-
-
+        setContentView(R.layout.buddy_lay);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         sms = (Button) findViewById(R.id.buttonSms);
         email= (Button) findViewById(R.id.buttonEmail);
@@ -89,7 +88,7 @@ public class BuddyLayActivity extends AppCompatActivity {
         intent.putExtra("sms_body","hello");
         startActivity(intent);
     }
-    // methods for the two buttons to send email
+   // methods for the two buttons to send email
     public void sendEmail(){
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/html");

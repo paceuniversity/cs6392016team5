@@ -2,71 +2,11 @@
     <string name="app_name">Trips</string>
     <string name="travelBud">Find Buddies</string>
     <string name="action_settings">Settings</string>
-    <string name="hint">Arriving</string>
-    <string-array name="cities">
-        <item>Montgomery, AL</item>
-        <item>Little Rock, AR</item>
-        <item>Phoenix, AZ</item>
-        <item>Sacramento, CA</item>
-        <item>Denver, CO</item>
-        <item>Harrford, CT</item>
-        <item>Dover, DE</item>
-        <item>Washington, DC</item>
-        <item>Tallahasse, FL</item>
-        <item>Atlanta, GA</item>
-        <item>Hawaii, HI</item>
-        <item>Bosie, ID</item>
-        <item>Chicago, IL</item>
-        <item>Indianapolis, IN</item>
-        <item>Des Moines, IA</item>
-        <item>Frankfort, KS</item>
-        <item>Topeka, KY</item>
-        <item>Baton Rogue, LA</item>
-        <item>Augusta, ME</item>
-        <item>Annapolis, MD</item>
-        <item>Boston, MA</item>
-        <item>Detroit, MI</item>
-        <item>Saint Paul, MN</item>
-        <item>Jefferson City, MS</item>
-        <item>Helena, MO</item>
-        <item>Jackson, MT</item>
-        <item>Lincon, NE</item>
-        <item>Carson City, NV</item>
-        <item>Concord, NH</item>
-        <item>Trenton, NJ</item>
-        <item>Santa Fe, NM</item>
-        <item>Albany, NY</item>
-        <item>Raleigh, NC</item>
-        <item>Bismark, ND</item>
-        <item>Columus, OH</item>
-        <item>Oklahoma City, OK</item>
-        <item>Salem, OR</item>
-        <item>Harrisburg, PA</item>
-        <item>Providence, RI</item>
-        <item>Columbia, SC</item>
-        <item>Pierre, SD</item>
-        <item>Nashville, TN</item>
-        <item>Austin, TX</item>
-        <item>Salt Lake City, UT</item>
-        <item>Montpelier, VT</item>
-        <item>Virginia, VA</item>
-        <item>Olympia, WA</item>
-        <item>Charleston, WV</item>
-        <item>Madison, WI</item>
-        <item>Cheyenne, WY</item>
-    </string-array>
 
-    <string-array name="numbers">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
+    <string-array name="cities">
+        <item>Boston</item>
+        <item>New York</item>
+        <item>Chicago</item>
     </string-array>
 
     <string name="travelBuddy"><b><u>Find a Travel Buddy!</u></b></string>
@@ -97,29 +37,4 @@
     <string name="title_activity_buddy_lay">BuddyLayActivity</string>
     <string name="title_activity_hotel_upgrade">HotelUpgradeActivity</string>
     <string name="title_activity_choose">ChooseActivityActivity</string>
-    <string name="arnold_schwarzenegger"><b><i>Arnold Schwarzenegger</i></b></string>
-    <string name="about_arnold_schwarzenegger">Arnold is a very successful bodybuilder, actor and politician. He will enlighten you with insight on how to flex your bex! He will teach you the mindset of successful actors. He will also teach you how to detect a lie! Pick him now!</string>
-    <string name="tim_cook"><b><i>Tim Cook</i></b></string>
-    <string name="about_tim_cook">Tim is a genius. He is a successful programmer, a successful
-        business man and a great public speaker. He will show you all the features of the IPhone that you do not know about.
-        He will also teach you how to take care of your business. Pick him. </string>
-
-    <string name="trump_hotel"><b><i>Trump Hotel</i></b></string>
-    <string name="hilton_hotel"><b><i>Hilton Hotel</i></b></string>
-    <string name="flying_from"><u>Flying From:</u></string>
-    <string name="flying_to"><u>Flying To:</u></string>
-
-    <string name="about_trump_hotel">The Trump Hotel Collection offers a lifestyle where you can do more,
-        experience more and live life without boundaries, limits or compromise. With destinations in New York
-        (Central Park and SoHo), Chicago, Las Vegas, Panama, Toronto, Waikiki - each hotel is renowned for its location
-        and architecture. Defined by a distinctly residential atmosphere, expansive rooms, lavish spa and fitness
-        facilities, endless views and flawless comfort</string>
-    <string name="about_hilton_hotel">Hilton Hotels and Resorts is Hilton Worldwide
-        flagship brand and one of the largest hotel brands in the world. The brand is targeted
-        at both business and leisure travelers with locations in major city centers, near airports,
-        convention centers, and popular vacation destinations around the world.</string>
-    <string name="date_label_set">Press the button to set the date</string>
-    <string name="date_button_set">Set Date</string>
-    <string name="date_view_set">The Date is: </string>
-    <string name="date_selected"></string>
 </resources>
