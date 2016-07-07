@@ -7,5 +7,4 @@
         android:endColor="#FFB5CDFC"
         android:type="linear" />
 
-    <stroke android:width="2dp" android:color="#ffffff"/>
-    <corners android:radius="5dp"/> </shape>
+ <corners android:radius="5dp"/> </shape>

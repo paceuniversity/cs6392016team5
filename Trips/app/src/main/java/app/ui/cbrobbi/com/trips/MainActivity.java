@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -16,12 +17,14 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.support.design.widget.AppBarLayout.LayoutParams;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -287,6 +290,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
     ///radio button method
     public void radioMethod(View v){
         RadioButton button =(RadioButton) v;
@@ -299,6 +303,24 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+    }
+
+    //add city functionality
+    public void add_city(View view) {
+        LinearLayout LL = new LinearLayout(this);
+        LL.setBackgroundColor(Color.CYAN);
+        LL.setOrientation(LinearLayout.VERTICAL);
+
+        LayoutParams LLParams = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+
+        LL.setWeightSum(6f);
+        LL.setLayoutParams(LLParams);
+        ImageView ladder = new ImageView(this);
+        ladder.setImageResource(R.mipmap.ic_launcher);
+
+        LinearLayout parent_layout = (LinearLayout) findViewById(R.id.test);
+        LL.addView(ladder);
+        parent_layout.addView(LL);
     }
 
 
