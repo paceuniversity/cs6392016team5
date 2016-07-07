@@ -6,6 +6,10 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RectShape;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -33,6 +37,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 
@@ -50,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
     TextView travelBuddy;
     EditText nightsNumber,nights1,nights2, adult, children, room;
     Spinner spinner_departure_cities;
+    int count=0;
+    int i;
+    ArrayList <String> al = new ArrayList();
 
     Spinner adltCntSpin, roomSpin, chldrnSpin;
     private static final String [] numbCount = {"1","2","3","4","5"};
@@ -306,25 +314,97 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //add city functionality
-    public void add_city(View view) {
-        LinearLayout LL = new LinearLayout(this);
-        LL.setBackgroundColor(Color.CYAN);
-        LL.setOrientation(LinearLayout.VERTICAL);
+    public int add_city(View view) {
+        count++;
+        //adding horizontal layout
+        LinearLayout LH = new LinearLayout(this);
+        LH.setOrientation(LinearLayout.HORIZONTAL);
+        LayoutParams LHParams = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+        //LHParams.weight = 100;
+        LH.setLayoutParams(LHParams);
+        //adding vertical layouts
+        LinearLayout LV1 = new LinearLayout(this);
+        LH.setOrientation(LinearLayout.VERTICAL);
+        LayoutParams LV1Params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+        LV1Params.weight = 4f;
+        LH.setLayoutParams(LV1Params);
 
-        LayoutParams LLParams = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+        LinearLayout LV2 = new LinearLayout(this);
+        LH.setOrientation(LinearLayout.VERTICAL);
+        LayoutParams LV2Params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+        LV2Params.weight = 2f;
+        LH.setLayoutParams(LV2Params);
 
-        LL.setWeightSum(6f);
-        LL.setLayoutParams(LLParams);
-        ImageView ladder = new ImageView(this);
-        ladder.setImageResource(R.mipmap.ic_launcher);
+        LinearLayout LV3 = new LinearLayout(this);
+        LH.setOrientation(LinearLayout.VERTICAL);
+        LayoutParams LV3Params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+        LV3Params.weight =3f;
+        LH.setLayoutParams(LV3Params);
+
+        EditText edit_text = new EditText(this);
+        edit_text.setId(count);
+        LayoutParams edittext_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+        //edit_text.setBackgroundResource(R.drawable.edittext_design);
+        edit_text.setLayoutParams(edittext_params);
+        EditText edit_text2 = new EditText(this);
+        LayoutParams edittext_params2 = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+        //edit_text.setBackgroundResource(R.drawable.edittext_design);
+        edit_text2.setLayoutParams(edittext_params2);
+        EditText edit_text3 = new EditText(this);
+        LayoutParams edittext_params3 = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+        //edit_text.setBackgroundResource(R.drawable.edittext_design);
+        edit_text3.setLayoutParams(edittext_params3);
+
 
         LinearLayout parent_layout = (LinearLayout) findViewById(R.id.test);
-        LL.addView(ladder);
-        parent_layout.addView(LL);
+
+        LH.addView(edit_text);
+        LH.addView(edit_text2);
+        LH.addView(edit_text3);
+        //LH.addView(LV1);
+        //LH.addView(LV2);
+        //LH.addView(LV3);
+
+        parent_layout.addView(LH);
+        Toast.makeText(MainActivity.this, Integer.toString(count), Toast.LENGTH_SHORT).show();
+
+        return count;
+
+
+
+        //Toast.makeText(MainActivity.this, Integer.toString(count)+Integer.toString(LL.getId())+Integer.toString(edit_text.getId()), Toast.LENGTH_SHORT).show();
+
     }
 
+    public void xxx(View view) {
+        //LinearLayout parent_layout = (LinearLayout) findViewById(R.id.test);
+        //Toast.makeText(MainActivity.this, Integer.toString(parent_layout.getChildCount()), Toast.LENGTH_SHORT).show();
 
+        for (int i = 0; i < count; i++) {
+            //LinearLayout child_layout = (LinearLayout) findViewById(i);
+            EditText child_text = (EditText) findViewById(i+1);
+            String a=child_text.getText().toString();
+            //CharSequence b=child_text.getText();
+             al.add(a);
+            //Toast.makeText(MainActivity.this, Integer.toString(al(i)), Toast.LENGTH_SHORT).show();
+
+        }
+       // Toast.makeText(MainActivity.this, Integer.toString(al.size()), Toast.LENGTH_SHORT).show();
+
+
+        String allItems = ""; //used to display in the toast
+
+        for(String str : al){
+            allItems = allItems + "\n" + str; //adds a new line between items
+        }
+
+        Toast.makeText(getApplicationContext(),allItems, Toast.LENGTH_LONG).show();
+
+    }
+
+    //passing user's itinirary to a new activity
     public void im_done(View view) {
+
 
 
         Spinner spinner_departure_cities = (Spinner) findViewById(R.id.departure_cities_spinner);

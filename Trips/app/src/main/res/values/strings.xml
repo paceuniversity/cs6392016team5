@@ -56,6 +56,16 @@
         <item>Cheyenne, WY</item>
     </string-array>
 
+    <string-array name="visiting_cities">
+        <item>Lima</item>
+        <item>Cuzco</item>
+        <item>Nazca</item>
+        <item>Arequipa</item>
+        <item>Iquitos</item>
+        <item>Puno</item>
+        <item>Ica</item>
+     </string-array>
+
     <string-array name="numbers">
         <item>1</item>
         <item>2</item>
