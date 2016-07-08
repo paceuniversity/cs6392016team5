@@ -37,6 +37,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 
@@ -54,9 +55,11 @@ public class MainActivity extends AppCompatActivity {
     TextView travelBuddy;
     EditText nightsNumber,nights1,nights2, adult, children, room;
     Spinner spinner_departure_cities;
-
+    int count=0;
+    int i;
+    ArrayList <String> al = new ArrayList();
     Spinner adltCntSpin, roomSpin, chldrnSpin;
-    private static final String [] numbCount = {"1","2","3","4","5"};
+
 
 
     @Override
@@ -66,17 +69,31 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Spinner spinner_departure_cities = (Spinner) findViewById(R.id.departure_cities_spinner);
+        // switching between with air fragment and without air fragment
+//        RadioGroup with_without_air_radioGroup = (RadioGroup) findViewById(R.id.with_without_air);
+//
+//        with_without_air_radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener()
+//        {
+//            public void onCheckedChanged(RadioGroup group, int checkedId) {
+//                // checkedId is the RadioButton selected
+//
+//                switch(checkedId) {
+//                    case R.id.with_air_button:
+//                        Toast.makeText(MainActivity.this, "with air", Toast.LENGTH_SHORT).show();
+//                        break;
+//                    case R.id.without_air_button:
+//                        Toast.makeText(MainActivity.this, "without air", Toast.LENGTH_SHORT).show();
+//                        break;
+//
+//                }
+//            }
+//        });
 
-        ArrayAdapter<CharSequence> adapter_cities = ArrayAdapter.createFromResource(this,
-                R.array.cities, R.layout.spinner_layout);
-        adapter_cities.setDropDownViewResource(R.layout.spinner_dropdown_layout);
-        spinner_departure_cities.setAdapter(adapter_cities);
 
-        Spinner spinner_rooms_num = (Spinner) findViewById(R.id.room_num_spinner);
-        ArrayAdapter<CharSequence> adapter_rooms = ArrayAdapter.createFromResource(this,R.array.numbers, R.layout.spinner_layout);
-        adapter_rooms.setDropDownViewResource(R.layout.spinner_dropdown_layout);
-        spinner_rooms_num.setAdapter(adapter_rooms);
+
+
+
+
 
 
 
@@ -91,14 +108,14 @@ public class MainActivity extends AppCompatActivity {
                                        }
 
         );
-        test1= (Button)findViewById(R.id.test1);
-        test1.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, HotelUpgradeActivity.class);
-                startActivity(intent);
-            }
-        });
+        //test1= (Button)findViewById(R.id.test1);
+        //test1.setOnClickListener(new View.OnClickListener(){
+          //  @Override
+            //public void onClick(View v) {
+              //  Intent intent = new Intent(MainActivity.this, HotelUpgradeActivity.class);
+                //startActivity(intent);
+            //}
+        //});
 
         dateView = (TextView) findViewById(R.id.date_selected);
         calendar = Calendar.getInstance();
@@ -107,74 +124,6 @@ public class MainActivity extends AppCompatActivity {
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
         showDate(year, month+1, day);
-
-        adult = (EditText) findViewById(R.id.adultNumber);
-        children = (EditText) findViewById(R.id.childrenNumber);
-        room = (EditText) findViewById(R.id.nightNumber);
-
-        nightsNumber = (EditText) findViewById(R.id.nightNumber);
-
-        //handle key presses, when one presses enter for nights,adult, children and room edittexts
-
-        nightsNumber.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode ==KeyEvent.KEYCODE_ENTER){
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(nightsNumber.getWindowToken(),0);
-                    nights1.setText(nightsNumber.getText().toString());
-                    nights2.setText(nightsNumber.getText().toString());
-                    nightsNumber.setCursorVisible(false);
-
-
-
-                }
-                return false;
-            }
-        });
-        adult.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode ==KeyEvent.KEYCODE_ENTER){
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(nightsNumber.getWindowToken(),0);
-                    adult.setText(adult.getText().toString());
-                    adult.setCursorVisible(false);
-                }
-                return false;
-            }
-        });
-        children.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode ==KeyEvent.KEYCODE_ENTER){
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(nightsNumber.getWindowToken(),0);
-                    children.setText(children.getText().toString());
-                    children.setCursorVisible(false);
-
-
-
-                }
-                return false;
-            }
-        });
-        room.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode ==KeyEvent.KEYCODE_ENTER){
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(nightsNumber.getWindowToken(),0);
-                    room.setText(room.getText().toString());
-                    room.setCursorVisible(false);
-
-
-
-                }
-                return false;
-            }
-        });
-
 
 
 
@@ -273,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
     @SuppressWarnings("deprecation")
     public void setDate(View view) {
         showDialog(999);
-        Toast.makeText(getApplicationContext(), "ca", Toast.LENGTH_SHORT)
+        Toast.makeText(getApplicationContext(), "Pick a date!", Toast.LENGTH_SHORT)
                 .show();
     }
 
@@ -312,7 +261,6 @@ public class MainActivity extends AppCompatActivity {
         // TODO Auto-generated method stub
         if (id == 999) {
             return new DatePickerDialog(this, myDateListener, year, month, day);
-
         }
         return null;
     }
@@ -329,11 +277,11 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
-
     private void showDate(int year, int month, int day) {
         dateView.setText(new StringBuilder().append(day).append("/")
                 .append(month).append("/").append(year));
     }
+
 
 
     ///radio button method
@@ -375,65 +323,107 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //add city functionality
-    public void add_city(View view) {
-        RadioButton wOAir = (RadioButton)findViewById(R.id.without_air_button);
-        RadioButton wAir = (RadioButton)findViewById(R.id.with_air_button);
-        LinearLayout LL = new LinearLayout(this);
-        LL.setOrientation(LinearLayout.HORIZONTAL);
-        LinearLayout LLLabel = new LinearLayout(this);
-        LLLabel.setOrientation(LinearLayout.HORIZONTAL);
-        LayoutParams LLParams = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
-        LinearLayout addCityLL = (LinearLayout)findViewById(R.id.addCityLL);
-        //LL.setWeightSum(6f);
-        LL.setLayoutParams(LLParams);
-        LLLabel.setLayoutParams(LLParams);
-        int count = addCityLL.getChildCount();
+    public int add_city(View view) {
+        count++;
+        //adding horizontal layout
+        LinearLayout LH = new LinearLayout(this);
+        LH.setOrientation(LinearLayout.HORIZONTAL);
+        LayoutParams LHParams = new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT);
+        LHParams.weight = 1;
+        LH.setLayoutParams(LHParams);
 
-        TextView flyToLabel = new TextView(this);
-        TextView arrivingLabel = new TextView(this);
-        TextView nightsLabel = new TextView(this);
-        LayoutParams flyToLabel_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT, 1f);
-        LayoutParams arrivingLabel_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT,1f);
-        LayoutParams nightsLabel_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT, 1f);
-        flyToLabel.setLayoutParams(flyToLabel_params);
-        arrivingLabel.setLayoutParams(arrivingLabel_params);
-        nightsLabel.setLayoutParams(nightsLabel_params);
-        flyToLabel.setId(View.generateViewId());
-        arrivingLabel.setId(View.generateViewId());
-        nightsLabel.setId(View.generateViewId());
+        //adding vertical layouts
+        LinearLayout LV1 = new LinearLayout(this);
+        LV1.setOrientation(LinearLayout.VERTICAL);
+        LayoutParams LV1Params = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        LV1Params.weight = 3f;
+        LV1.setLayoutParams(LV1Params);
 
-        if (wAir.isChecked())
-        {
-            flyToLabel.setText("Flying to:");
+        LinearLayout LV2 = new LinearLayout(this);
+        LV2.setOrientation(LinearLayout.VERTICAL);
+        LayoutParams LV2Params = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        LV2Params.weight = 3f;
+        LV2.setLayoutParams(LV2Params);
 
-        }
-        else
-        {
-            flyToLabel.setText("Traveling to;");
+        LinearLayout LV3 = new LinearLayout(this);
+        LV3.setOrientation(LinearLayout.VERTICAL);
+        LayoutParams LV3Params = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        LV3Params.weight =3f;
+        LV3.setLayoutParams(LV3Params);
 
-        }
-        arrivingLabel.setText("Arriving:");
-        nightsLabel.setText("Nights:");
-
-
-
-        EditText edit_text = new EditText(this);
+        EditText edittext_nights = new EditText(this);
+        edittext_nights.setId(count);
         LayoutParams edittext_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
-        edit_text.setLayoutParams(edittext_params);
-        edit_text.setBackgroundResource(R.drawable.edittext_design);
+        edittext_nights.setBackgroundResource(R.drawable.edittext_design);
+        edittext_nights.setLayoutParams(edittext_params);
 
-        LinearLayout parent_layout = (LinearLayout) findViewById(R.id.addCityLL);
-        LLLabel.addView(flyToLabel);
-        LLLabel.addView(arrivingLabel);
-        LLLabel.addView(nightsLabel);
-        parent_layout.addView(LLLabel);
-        LL.addView(edit_text);
-        parent_layout.addView(LL);}
+        Spinner spinner_add_city = new Spinner(this);
+        ArrayAdapter<CharSequence> spinner_adapter_add_city = ArrayAdapter.createFromResource(this, R.array.visiting_cities, R.layout.spinner_layout);
+        spinner_adapter_add_city.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        spinner_add_city.setMinimumHeight(40);
+        spinner_add_city.setAdapter(spinner_adapter_add_city);
+        spinner_add_city.setId(count*222);
+        LayoutParams spiiner_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+        spinner_add_city.setBackgroundResource(R.drawable.spinner_design);
+        spinner_add_city.setLayoutParams(spiiner_params);
+        EditText edit_text3 = new EditText(this);
+        LayoutParams edittext_params3 = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+        edit_text3.setLayoutParams(edittext_params3);
 
 
-    //passing user's selection to a new activity
+        LinearLayout parent_layout = (LinearLayout) findViewById(R.id.test);
+
+        LV1.addView(spinner_add_city);
+        //LV2.addView();
+        LV3.addView(edittext_nights);
+        LH.addView(LV1);
+        LH.addView(LV2);
+        LH.addView(LV3);
+
+        parent_layout.addView(LH);
+        Toast.makeText(MainActivity.this, Integer.toString(count), Toast.LENGTH_SHORT).show();
+
+        return count;
+
+
+
+        //Toast.makeText(MainActivity.this, Integer.toString(count)+Integer.toString(LL.getId())+Integer.toString(edit_text.getId()), Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void xxx(View view) {
+        //LinearLayout parent_layout = (LinearLayout) findViewById(R.id.test);
+        //Toast.makeText(MainActivity.this, Integer.toString(parent_layout.getChildCount()), Toast.LENGTH_SHORT).show();
+
+        for (int i = 0; i < count; i++) {
+            //LinearLayout child_layout = (LinearLayout) findViewById(i);
+            EditText child_text = (EditText) findViewById(i+1);
+            Spinner spinner_text = (Spinner) findViewById((i+1)*222);
+            String a=child_text.getText().toString();
+            String b=spinner_text.getSelectedItem().toString();
+            String c=a+b;
+
+            //CharSequence b=child_text.getText();
+             al.add(c);
+            //al2()
+            //Toast.makeText(MainActivity.this, Integer.toString(al(i)), Toast.LENGTH_SHORT).show();
+
+        }
+       // Toast.makeText(MainActivity.this, Integer.toString(al.size()), Toast.LENGTH_SHORT).show();
+
+
+        String allItems = ""; //used to display in the toast
+
+        for(String str : al){
+            allItems = allItems + "\n" + str; //adds a new line between items
+        }
+
+        Toast.makeText(getApplicationContext(),allItems, Toast.LENGTH_LONG).show();
+
+    }
+
+    //passing user's itinirary to a new activity
     public void im_done(View view) {
-
 
         Spinner spinner_departure_cities = (Spinner) findViewById(R.id.departure_cities_spinner);
         Spinner spinner_cabin_class = (Spinner) findViewById(R.id.cabin_class_spinner);
@@ -443,19 +433,62 @@ public class MainActivity extends AppCompatActivity {
         EditText adults_num = (EditText) findViewById(R.id.adultNumber);
         EditText children_num = (EditText) findViewById(R.id.childrenNumber);
         EditText nights_num = (EditText) findViewById(R.id.nightNumber);
+        TextView adults_error_message = (TextView) findViewById(R.id.adults_error_message);
+        TextView nights_error_message = (TextView) findViewById(R.id.adults_error_message);
 
-        Intent imDoneIntent = new Intent (this, ImDoneActivity.class);
-        imDoneIntent.putExtra("departure_city", spinner_departure_cities.getSelectedItem().toString());
-        imDoneIntent.putExtra("cabin_class", spinner_cabin_class.getSelectedItem().toString());
-        imDoneIntent.putExtra("rooms_num", spinner_rooms_num.getSelectedItem().toString());
-        imDoneIntent.putExtra("arriving_city", spinner_arriving_city.getSelectedItem().toString());
-        imDoneIntent.putExtra("selected_date", date_selected.getText().toString());
-        imDoneIntent.putExtra("adults_number",Integer.parseInt(adults_num.getText().toString()));
-        imDoneIntent.putExtra("children_number",Integer.parseInt(children_num.getText().toString()));
-        imDoneIntent.putExtra("nights_number",Integer.parseInt(nights_num.getText().toString()));
+        if ((adults_num.getText().toString()).matches("")||(nights_num.getText().toString()).matches("")) {
+            adults_error_message.setText("Enter a number!");
+            nights_error_message.setText("Enter a number!");
 
-        startActivity(imDoneIntent);
+        }
+        else {
+
+
+
+            for (int i = 0; i < count; i++) {
+                //LinearLayout child_layout = (LinearLayout) findViewById(i);
+                EditText child_text = (EditText) findViewById(i + 1);
+                Spinner spinner_text = (Spinner) findViewById((i + 1) * 222);
+                String a = child_text.getText().toString();
+                String b = spinner_text.getSelectedItem().toString();
+                String c = a + b;
+
+                //CharSequence b=child_text.getText();
+                al.add(c);
+                //al2()
+                //Toast.makeText(MainActivity.this, Integer.toString(al(i)), Toast.LENGTH_SHORT).show();
+
+            }
+            // Toast.makeText(MainActivity.this, Integer.toString(al.size()), Toast.LENGTH_SHORT).show();
+
+
+            String allItems = ""; //used to display in the toast
+
+            for (String str : al) {
+                allItems = allItems + "\n" + str; //adds a new line between items
+            }
+
+            //Toast.makeText(getApplicationContext(),allItems, Toast.LENGTH_LONG).show();
+
+
+            Intent imDoneIntent = new Intent(this, ImDoneActivity.class);
+            imDoneIntent.putExtra("departure_city", spinner_departure_cities.getSelectedItem().toString());
+            imDoneIntent.putExtra("cabin_class", spinner_cabin_class.getSelectedItem().toString());
+            imDoneIntent.putExtra("rooms_num", spinner_rooms_num.getSelectedItem().toString());
+            imDoneIntent.putExtra("arriving_city", spinner_arriving_city.getSelectedItem().toString());
+            imDoneIntent.putExtra("selected_date", date_selected.getText().toString());
+            imDoneIntent.putExtra("adults_number", Integer.parseInt(adults_num.getText().toString()));
+            imDoneIntent.putExtra("children_number", Integer.parseInt(children_num.getText().toString()));
+            imDoneIntent.putExtra("nights_number", Integer.parseInt(nights_num.getText().toString()));
+            imDoneIntent.putExtra("mylist", al);
+
+            startActivity(imDoneIntent);
+        }
+
 
     }
+
+
+
 
 }
