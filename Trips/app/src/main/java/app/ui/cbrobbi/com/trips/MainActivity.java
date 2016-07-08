@@ -27,6 +27,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
@@ -88,13 +89,6 @@ public class MainActivity extends AppCompatActivity {
 //                }
 //            }
 //        });
-
-
-
-
-
-
-
 
 
 
@@ -323,21 +317,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //add city functionality
-    public int add_city(View view) {
+    public void add_city(View view) {
         count++;
         //adding horizontal layout
         LinearLayout LH = new LinearLayout(this);
         LH.setOrientation(LinearLayout.HORIZONTAL);
         LayoutParams LHParams = new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT);
-        LHParams.weight = 1;
+        LH.setMinimumHeight(25);
+        LHParams.setMargins(0,0,0,30);
         LH.setLayoutParams(LHParams);
 
         //adding vertical layouts
         LinearLayout LV1 = new LinearLayout(this);
         LV1.setOrientation(LinearLayout.VERTICAL);
-        LayoutParams LV1Params = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        LayoutParams LV1Params = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.MATCH_PARENT);
         LV1Params.weight = 3f;
         LV1.setLayoutParams(LV1Params);
+
+        FrameLayout FL1 = new FrameLayout(this);
+        LayoutParams FL1Params = new LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.MATCH_PARENT);
+        FL1.setLayoutParams(FL1Params);
 
         LinearLayout LV2 = new LinearLayout(this);
         LV2.setOrientation(LinearLayout.VERTICAL);
@@ -345,11 +344,19 @@ public class MainActivity extends AppCompatActivity {
         LV2Params.weight = 3f;
         LV2.setLayoutParams(LV2Params);
 
+        FrameLayout FL2 = new FrameLayout(this);
+        LayoutParams FL2Params = new LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.MATCH_PARENT);
+        FL2.setLayoutParams(FL2Params);
+
         LinearLayout LV3 = new LinearLayout(this);
         LV3.setOrientation(LinearLayout.VERTICAL);
         LayoutParams LV3Params = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
         LV3Params.weight =3f;
         LV3.setLayoutParams(LV3Params);
+
+        FrameLayout FL3 = new FrameLayout(this);
+        LayoutParams FL3Params = new LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.MATCH_PARENT);
+        FL3.setLayoutParams(FL3Params);
 
         EditText edittext_nights = new EditText(this);
         edittext_nights.setId(count);
@@ -360,32 +367,37 @@ public class MainActivity extends AppCompatActivity {
         Spinner spinner_add_city = new Spinner(this);
         ArrayAdapter<CharSequence> spinner_adapter_add_city = ArrayAdapter.createFromResource(this, R.array.visiting_cities, R.layout.spinner_layout);
         spinner_adapter_add_city.setDropDownViewResource(R.layout.spinner_dropdown_layout);
-        spinner_add_city.setMinimumHeight(40);
         spinner_add_city.setAdapter(spinner_adapter_add_city);
         spinner_add_city.setId(count*222);
         LayoutParams spiiner_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
         spinner_add_city.setBackgroundResource(R.drawable.spinner_design);
         spinner_add_city.setLayoutParams(spiiner_params);
-        EditText edit_text3 = new EditText(this);
-        LayoutParams edittext_params3 = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
-        edit_text3.setLayoutParams(edittext_params3);
+        Button remove_city_button = new Button (this);
+        LayoutParams remove_city_button_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+        remove_city_button.setBackgroundResource(R.drawable.button_design);
+        remove_city_button_params.setMargins(0,20,0,20);
+        remove_city_button.setText("Remove");
+        remove_city_button.setTextColor(Color.parseColor("#FFFFFF"));
+        remove_city_button.setLayoutParams(remove_city_button_params);
 
 
-        LinearLayout parent_layout = (LinearLayout) findViewById(R.id.test);
 
-        LV1.addView(spinner_add_city);
-        //LV2.addView();
-        LV3.addView(edittext_nights);
+        LinearLayout parent_layout = (LinearLayout) findViewById(R.id.parent_layout);
+
+        FL1.addView(spinner_add_city);
+        FL2.addView(remove_city_button);
+        FL3.addView(edittext_nights);
+
+        LV1.addView(FL1);
+        LV2.addView(FL2);
+        LV3.addView(FL3);
+
         LH.addView(LV1);
         LH.addView(LV2);
         LH.addView(LV3);
 
         parent_layout.addView(LH);
         Toast.makeText(MainActivity.this, Integer.toString(count), Toast.LENGTH_SHORT).show();
-
-        return count;
-
-
 
         //Toast.makeText(MainActivity.this, Integer.toString(count)+Integer.toString(LL.getId())+Integer.toString(edit_text.getId()), Toast.LENGTH_SHORT).show();
 
