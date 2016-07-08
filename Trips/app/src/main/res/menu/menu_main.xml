@@ -3,8 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="app.ui.cbrobbi.com.trips.MainActivity">
     <item
-        android:id="@+id/action_settings"
+    android:id="@+id/action_settings"
+    android:orderInCategory="100"
+    android:title="@string/action_settings"
+    app:showAsAction="never" />
+    <item
+        android:id="@+id/action_help"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/action_help"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_cart"
+        android:orderInCategory="100"
+        android:title="@string/action_cart"
         app:showAsAction="never" />
 </menu>

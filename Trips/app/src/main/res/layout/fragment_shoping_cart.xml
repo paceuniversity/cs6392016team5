@@ -7,7 +7,201 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="app.ui.cbrobbi.com.trips.ShopingCartActivityFragment"
-    tools:showIn="@layout/activity_shoping_cart">
+    tools:showIn="@layout/activity_shoping_cart"
+    android:background="@drawable/main_page_background_design">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/itemList"
+        android:layout_alignParentTop="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ITEMS:"
+            android:layout_gravity="center"
+            />
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="1) Item Description Dynamicall created"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_column="1" />
+
+                <TextView
+                    android:text="$1000.00"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:layout_column="2" />
+            </TableRow>
+
+        </TableLayout>
 
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Total:"
+            android:layout_gravity="left"
+            />
+    </LinearLayout>
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ccTable"
+        android:layout_below="@id/itemList">
+
+        <TableRow
+            android:layout_margin="@dimen/activity_horizontal_margin">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_column="1"
+                android:text="@string/lstName"
+                android:id="@+id/ccLstNmLbl" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:hint="Last Name"
+                android:id="@+id/ccLstNm"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_design"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_margin="@dimen/activity_horizontal_margin">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_column="1"
+                android:text="@string/fstName"
+                android:id="@+id/ccFstNmLbl" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:hint="First Name"
+                android:id="@+id/ccFstNm"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_design"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_margin="@dimen/activity_horizontal_margin">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:text="@string/email"
+                android:id="@+id/ccEmailLbl" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:inputType="textEmailAddress"
+                android:hint="Enter Email"
+                android:id="@+id/ccEmail"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_design"/>
+        </TableRow>
+        <TableRow
+            android:layout_margin="@dimen/activity_horizontal_margin">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:text="@string/zip"
+                android:id="@+id/ccZipLbl"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:inputType="number"
+                android:hint="Zip"
+                android:ems="10"
+                android:id="@+id/ccZip"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_design"/>
+        </TableRow>
+        <TableRow
+            android:layout_margin="@dimen/activity_horizontal_margin">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_column="1"
+                android:text="@string/ccTyp"
+                android:id="@+id/ccTypeLbl" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_weight="1"
+                >
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/ccType"
+                    android:entries="@array/cards"
+                    android:background="@drawable/spinner_design"
+                    android:minHeight="40dp" />
+            </FrameLayout>
+
+        </TableRow>
+        <TableRow
+            android:layout_margin="@dimen/activity_horizontal_margin">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_column="1"
+                android:text="@string/ccNbr"
+                android:id="@+id/ccNbrLbl" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:inputType="number"
+                android:hint="Enter 16 digit number"
+                android:ems="10"
+                android:id="@+id/ccNbr"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_design"/>
+    </TableRow>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="@dimen/activity_horizontal_margin">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:id="@+id/button"
+                android:layout_column="2" />
+        </TableRow>
+
+    </TableLayout>
 </RelativeLayout>
