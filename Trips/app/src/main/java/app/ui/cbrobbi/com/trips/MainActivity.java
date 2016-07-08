@@ -376,19 +376,57 @@ public class MainActivity extends AppCompatActivity {
 
     //add city functionality
     public void add_city(View view) {
+        RadioButton wOAir = (RadioButton)findViewById(R.id.without_air_button);
+        RadioButton wAir = (RadioButton)findViewById(R.id.with_air_button);
         LinearLayout LL = new LinearLayout(this);
         LL.setOrientation(LinearLayout.HORIZONTAL);
-
+        LinearLayout LLLabel = new LinearLayout(this);
+        LLLabel.setOrientation(LinearLayout.HORIZONTAL);
         LayoutParams LLParams = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
-
+        LinearLayout addCityLL = (LinearLayout)findViewById(R.id.addCityLL);
         //LL.setWeightSum(6f);
         LL.setLayoutParams(LLParams);
+        LLLabel.setLayoutParams(LLParams);
+        int count = addCityLL.getChildCount();
+
+        TextView flyToLabel = new TextView(this);
+        TextView arrivingLabel = new TextView(this);
+        TextView nightsLabel = new TextView(this);
+        LayoutParams flyToLabel_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT, 1f);
+        LayoutParams arrivingLabel_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT,1f);
+        LayoutParams nightsLabel_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT, 1f);
+        flyToLabel.setLayoutParams(flyToLabel_params);
+        arrivingLabel.setLayoutParams(arrivingLabel_params);
+        nightsLabel.setLayoutParams(nightsLabel_params);
+        flyToLabel.setId(View.generateViewId());
+        arrivingLabel.setId(View.generateViewId());
+        nightsLabel.setId(View.generateViewId());
+
+        if (wAir.isChecked())
+        {
+            flyToLabel.setText("Flying to:");
+
+        }
+        else
+        {
+            flyToLabel.setText("Traveling to;");
+
+        }
+        arrivingLabel.setText("Arriving:");
+        nightsLabel.setText("Nights:");
+
+
+
         EditText edit_text = new EditText(this);
         LayoutParams edittext_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
         edit_text.setLayoutParams(edittext_params);
         edit_text.setBackgroundResource(R.drawable.edittext_design);
 
-        LinearLayout parent_layout = (LinearLayout) findViewById(R.id.test);
+        LinearLayout parent_layout = (LinearLayout) findViewById(R.id.addCityLL);
+        LLLabel.addView(flyToLabel);
+        LLLabel.addView(arrivingLabel);
+        LLLabel.addView(nightsLabel);
+        parent_layout.addView(LLLabel);
         LL.addView(edit_text);
         parent_layout.addView(LL);}
 
