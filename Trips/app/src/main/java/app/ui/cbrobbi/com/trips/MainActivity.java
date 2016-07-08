@@ -66,26 +66,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // switching between with air fragment and without air fragment
-//        RadioGroup with_without_air_radioGroup = (RadioGroup) findViewById(R.id.with_without_air);
-//
-//        with_without_air_radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener()
-//        {
-//            public void onCheckedChanged(RadioGroup group, int checkedId) {
-//                // checkedId is the RadioButton selected
-//
-//                switch(checkedId) {
-//                    case R.id.with_air_button:
-//                        Toast.makeText(MainActivity.this, "with air", Toast.LENGTH_SHORT).show();
-//                        break;
-//                    case R.id.without_air_button:
-//                        Toast.makeText(MainActivity.this, "without air", Toast.LENGTH_SHORT).show();
-//                        break;
-//
-//                }
-//            }
-//        });
-
         Spinner spinner_departure_cities = (Spinner) findViewById(R.id.departure_cities_spinner);
 
         ArrayAdapter<CharSequence> adapter_cities = ArrayAdapter.createFromResource(this,
@@ -359,7 +339,10 @@ public class MainActivity extends AppCompatActivity {
     ///radio button method
     public void radioMethod(View v){
         boolean button =((RadioButton) v).isChecked();
-
+        TextView tv2 = (TextView)findViewById(R.id.textView2);
+        TextView tvFlyTo = (TextView)findViewById(R.id.flying_to_desc);
+        Spinner classSpinnr = (Spinner)findViewById(R.id.cabin_class_spinner);
+        TextView tvClassLbl = (TextView)findViewById(R.id.textView3);
         switch(v.getId())
         {
             case R.id.without_air_button:
@@ -367,6 +350,12 @@ public class MainActivity extends AppCompatActivity {
                 {
                     RadioButton ntChckd = (RadioButton)findViewById(R.id.with_air_button);
                     ntChckd.setChecked(false);
+
+                    tv2.setText("Traveling From:");
+                    tvFlyTo.setText("Traveling To:");
+                    classSpinnr.setVisibility(View.GONE);
+                    tvClassLbl.setVisibility(View.GONE);
+
                 }
                 break;
             case R.id.with_air_button:
@@ -374,6 +363,10 @@ public class MainActivity extends AppCompatActivity {
                 {
                     RadioButton ntChckd = (RadioButton)findViewById(R.id.without_air_button);
                     ntChckd.setChecked(false);
+                    tv2.setText("Flying From:");
+                    tvFlyTo.setText("Flying to:");
+                    classSpinnr.setVisibility(View.VISIBLE);
+                    tvClassLbl.setVisibility(View.VISIBLE);
 
                 }
                 break;
