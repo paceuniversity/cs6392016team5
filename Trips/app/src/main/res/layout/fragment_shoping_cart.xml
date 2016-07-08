@@ -46,7 +46,11 @@
             </TableRow>
 
         </TableLayout>
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/black"
+            android:layout_marginBottom="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -55,6 +59,12 @@
             android:text="Total:"
             android:layout_gravity="left"
             />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/black"
+            android:layout_marginBottom="15dp" />
     </LinearLayout>
 
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -64,7 +74,7 @@
         android:layout_below="@id/itemList">
 
         <TableRow
-            android:layout_margin="@dimen/activity_horizontal_margin">
+            android:layout_margin="@dimen/activity_horizontal_margin2">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -72,19 +82,30 @@
                 android:layout_column="1"
                 android:text="@string/lstName"
                 android:id="@+id/ccLstNmLbl" />
-
-            <EditText
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
-                android:hint="Last Name"
-                android:id="@+id/ccLstNm"
-                android:layout_weight="1"
-                android:background="@drawable/edittext_design"/>
+                android:layout_weight="1">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Last Name"
+                    android:id="@+id/ccLstNm"
+                    android:background="@drawable/edittext_design"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/red"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:id="@+id/lastNmErr" />
+        </LinearLayout>
         </TableRow>
 
         <TableRow
-            android:layout_margin="@dimen/activity_horizontal_margin">
+            android:layout_margin="@dimen/activity_horizontal_margin2">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -92,19 +113,30 @@
                 android:layout_column="1"
                 android:text="@string/fstName"
                 android:id="@+id/ccFstNmLbl" />
-
-            <EditText
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
-                android:hint="First Name"
-                android:id="@+id/ccFstNm"
-                android:layout_weight="1"
-                android:background="@drawable/edittext_design"/>
+                android:layout_weight="1">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="First Name"
+                    android:id="@+id/ccFstNm"
+                    android:background="@drawable/edittext_design"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/red"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:id="@+id/fstNmErr" />
+        </LinearLayout>
         </TableRow>
 
         <TableRow
-            android:layout_margin="@dimen/activity_horizontal_margin">
+            android:layout_margin="@dimen/activity_horizontal_margin2">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -112,19 +144,31 @@
                 android:layout_weight="1"
                 android:text="@string/email"
                 android:id="@+id/ccEmailLbl" />
-
-            <EditText
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
-                android:inputType="textEmailAddress"
-                android:hint="Enter Email"
-                android:id="@+id/ccEmail"
-                android:layout_weight="1"
-                android:background="@drawable/edittext_design"/>
+                android:layout_weight="1">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:hint="Enter Email"
+                    android:id="@+id/ccEmail"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_design"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/red"
+                    android:text=""
+                    android:id="@+id/emailErr" />
+        </LinearLayout>
         </TableRow>
         <TableRow
-            android:layout_margin="@dimen/activity_horizontal_margin">
+            android:layout_margin="@dimen/activity_horizontal_margin2">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -133,20 +177,31 @@
                 android:text="@string/zip"
                 android:id="@+id/ccZipLbl"
                 />
-
-            <EditText
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
-                android:inputType="number"
-                android:hint="Zip"
-                android:ems="10"
-                android:id="@+id/ccZip"
-                android:layout_weight="1"
-                android:background="@drawable/edittext_design"/>
+                android:layout_weight="1">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="Zip"
+                    android:id="@+id/ccZip"
+                    android:background="@drawable/edittext_design"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/red"
+                    android:text=""
+                    android:id="@+id/zipErr" />
+            </LinearLayout>
         </TableRow>
         <TableRow
-            android:layout_margin="@dimen/activity_horizontal_margin">
+            android:layout_margin="@dimen/activity_horizontal_margin2">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -171,7 +226,7 @@
 
         </TableRow>
         <TableRow
-            android:layout_margin="@dimen/activity_horizontal_margin">
+            android:layout_margin="@dimen/activity_horizontal_margin2">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -179,17 +234,29 @@
                 android:layout_column="1"
                 android:text="@string/ccNbr"
                 android:id="@+id/ccNbrLbl" />
-
-            <EditText
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
-                android:inputType="number"
-                android:hint="Enter 16 digit number"
-                android:ems="10"
-                android:id="@+id/ccNbr"
-                android:layout_weight="1"
-                android:background="@drawable/edittext_design"/>
+                android:layout_weight="1">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="Enter 16 digit number"
+                    android:id="@+id/ccNbr"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_design"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/red"
+                    android:text=""
+                    android:id="@+id/ccNbrErr" />
+            </LinearLayout>
+
     </TableRow>
         <TableRow
             android:layout_width="fill_parent"
@@ -198,9 +265,10 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Submit"
+                android:text="Submit Payment"
                 android:id="@+id/button"
-                android:layout_column="2" />
+                android:layout_column="2"
+                android:onClick="validateCC"/>
         </TableRow>
 
     </TableLayout>
