@@ -19,4 +19,5 @@ public class ShopingCartActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_shoping_cart, container, false);
     }
+
 }
