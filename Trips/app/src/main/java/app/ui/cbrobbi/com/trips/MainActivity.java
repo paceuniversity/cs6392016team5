@@ -86,8 +86,6 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-
-
         Spinner spinner_departure_cities = (Spinner) findViewById(R.id.departure_cities_spinner);
 
         ArrayAdapter<CharSequence> adapter_cities = ArrayAdapter.createFromResource(this,
@@ -130,10 +128,72 @@ public class MainActivity extends AppCompatActivity {
         day = calendar.get(Calendar.DAY_OF_MONTH);
         showDate(year, month+1, day);
 
+        adult = (EditText) findViewById(R.id.adultNumber);
+        children = (EditText) findViewById(R.id.childrenNumber);
+        room = (EditText) findViewById(R.id.nightNumber);
+
+        nightsNumber = (EditText) findViewById(R.id.nightNumber);
+
+        //handle key presses, when one presses enter for nights,adult, children and room edittexts
+
+        nightsNumber.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode ==KeyEvent.KEYCODE_ENTER){
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(nightsNumber.getWindowToken(),0);
+                    nights1.setText(nightsNumber.getText().toString());
+                    nights2.setText(nightsNumber.getText().toString());
+                    nightsNumber.setCursorVisible(false);
 
 
 
+                }
+                return false;
+            }
+        });
+        adult.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode ==KeyEvent.KEYCODE_ENTER){
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(nightsNumber.getWindowToken(),0);
+                    adult.setText(adult.getText().toString());
+                    adult.setCursorVisible(false);
+                }
+                return false;
+            }
+        });
+        children.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode ==KeyEvent.KEYCODE_ENTER){
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(nightsNumber.getWindowToken(),0);
+                    children.setText(children.getText().toString());
+                    children.setCursorVisible(false);
 
+
+
+                }
+                return false;
+            }
+        });
+        room.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode ==KeyEvent.KEYCODE_ENTER){
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(nightsNumber.getWindowToken(),0);
+                    room.setText(room.getText().toString());
+                    room.setCursorVisible(false);
+
+
+
+                }
+                return false;
+            }
+        });
 
 
 
@@ -272,6 +332,7 @@ public class MainActivity extends AppCompatActivity {
         // TODO Auto-generated method stub
         if (id == 999) {
             return new DatePickerDialog(this, myDateListener, year, month, day);
+
         }
         return null;
     }
@@ -288,11 +349,11 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
+
     private void showDate(int year, int month, int day) {
         dateView.setText(new StringBuilder().append(day).append("/")
                 .append(month).append("/").append(year));
     }
-
 
 
     ///radio button method
@@ -336,10 +397,8 @@ public class MainActivity extends AppCompatActivity {
 
         LinearLayout parent_layout = (LinearLayout) findViewById(R.id.test);
         LL.addView(edit_text);
-        parent_layout.addView(LL);
+        parent_layout.addView(LL);}
 
-
-    }
 
     //passing user's selection to a new activity
     public void im_done(View view) {
@@ -366,10 +425,6 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(imDoneIntent);
 
-
     }
-
-
-
 
 }
