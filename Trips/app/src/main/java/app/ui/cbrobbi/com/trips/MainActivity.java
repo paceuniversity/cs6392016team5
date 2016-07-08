@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     int count=0;
     int i;
     ArrayList <String> al = new ArrayList();
-
+    ArrayList <String> al2 = new ArrayList();
     Spinner adltCntSpin, roomSpin, chldrnSpin;
     private static final String [] numbCount = {"1","2","3","4","5"};
 
@@ -94,15 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
         Spinner spinner_departure_cities = (Spinner) findViewById(R.id.departure_cities_spinner);
 
-        ArrayAdapter<CharSequence> adapter_cities = ArrayAdapter.createFromResource(this,
-                R.array.cities, R.layout.spinner_layout);
-        adapter_cities.setDropDownViewResource(R.layout.spinner_dropdown_layout);
-        spinner_departure_cities.setAdapter(adapter_cities);
 
-        Spinner spinner_rooms_num = (Spinner) findViewById(R.id.room_num_spinner);
-        ArrayAdapter<CharSequence> adapter_rooms = ArrayAdapter.createFromResource(this,R.array.numbers, R.layout.spinner_layout);
-        adapter_rooms.setDropDownViewResource(R.layout.spinner_dropdown_layout);
-        spinner_rooms_num.setAdapter(adapter_rooms);
 
 
 
@@ -133,12 +125,6 @@ public class MainActivity extends AppCompatActivity {
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
         showDate(year, month+1, day);
-
-
-
-
-
-
 
 
 
@@ -319,51 +305,57 @@ public class MainActivity extends AppCompatActivity {
         //adding horizontal layout
         LinearLayout LH = new LinearLayout(this);
         LH.setOrientation(LinearLayout.HORIZONTAL);
-        LayoutParams LHParams = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
-        //LHParams.weight = 100;
+        LayoutParams LHParams = new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT);
+        LHParams.weight = 1;
         LH.setLayoutParams(LHParams);
+
         //adding vertical layouts
         LinearLayout LV1 = new LinearLayout(this);
-        LH.setOrientation(LinearLayout.VERTICAL);
-        LayoutParams LV1Params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-        LV1Params.weight = 4f;
-        LH.setLayoutParams(LV1Params);
+        LV1.setOrientation(LinearLayout.VERTICAL);
+        LayoutParams LV1Params = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        LV1Params.weight = 3f;
+        LV1.setLayoutParams(LV1Params);
 
         LinearLayout LV2 = new LinearLayout(this);
-        LH.setOrientation(LinearLayout.VERTICAL);
-        LayoutParams LV2Params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-        LV2Params.weight = 2f;
-        LH.setLayoutParams(LV2Params);
+        LV2.setOrientation(LinearLayout.VERTICAL);
+        LayoutParams LV2Params = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        LV2Params.weight = 3f;
+        LV2.setLayoutParams(LV2Params);
 
         LinearLayout LV3 = new LinearLayout(this);
-        LH.setOrientation(LinearLayout.VERTICAL);
-        LayoutParams LV3Params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+        LV3.setOrientation(LinearLayout.VERTICAL);
+        LayoutParams LV3Params = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
         LV3Params.weight =3f;
-        LH.setLayoutParams(LV3Params);
+        LV3.setLayoutParams(LV3Params);
 
-        EditText edit_text = new EditText(this);
-        edit_text.setId(count);
+        EditText edittext_nights = new EditText(this);
+        edittext_nights.setId(count);
         LayoutParams edittext_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
-        //edit_text.setBackgroundResource(R.drawable.edittext_design);
-        edit_text.setLayoutParams(edittext_params);
-        EditText edit_text2 = new EditText(this);
-        LayoutParams edittext_params2 = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
-        //edit_text.setBackgroundResource(R.drawable.edittext_design);
-        edit_text2.setLayoutParams(edittext_params2);
+        edittext_nights.setBackgroundResource(R.drawable.edittext_design);
+        edittext_nights.setLayoutParams(edittext_params);
+
+        Spinner spinner_add_city = new Spinner(this);
+        ArrayAdapter<CharSequence> spinner_adapter_add_city = ArrayAdapter.createFromResource(this, R.array.visiting_cities, R.layout.spinner_layout);
+        spinner_adapter_add_city.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        spinner_add_city.setMinimumHeight(40);
+        spinner_add_city.setAdapter(spinner_adapter_add_city);
+        spinner_add_city.setId(count*222);
+        LayoutParams spiiner_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+        spinner_add_city.setBackgroundResource(R.drawable.spinner_design);
+        spinner_add_city.setLayoutParams(spiiner_params);
         EditText edit_text3 = new EditText(this);
         LayoutParams edittext_params3 = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
-        //edit_text.setBackgroundResource(R.drawable.edittext_design);
         edit_text3.setLayoutParams(edittext_params3);
 
 
         LinearLayout parent_layout = (LinearLayout) findViewById(R.id.test);
 
-        LH.addView(edit_text);
-        LH.addView(edit_text2);
-        LH.addView(edit_text3);
-        //LH.addView(LV1);
-        //LH.addView(LV2);
-        //LH.addView(LV3);
+        LV1.addView(spinner_add_city);
+        //LV2.addView();
+        LV3.addView(edittext_nights);
+        LH.addView(LV1);
+        LH.addView(LV2);
+        LH.addView(LV3);
 
         parent_layout.addView(LH);
         Toast.makeText(MainActivity.this, Integer.toString(count), Toast.LENGTH_SHORT).show();
@@ -383,9 +375,14 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < count; i++) {
             //LinearLayout child_layout = (LinearLayout) findViewById(i);
             EditText child_text = (EditText) findViewById(i+1);
+            Spinner spinner_text = (Spinner) findViewById((i+1)*222);
             String a=child_text.getText().toString();
+            String b=spinner_text.getSelectedItem().toString();
+            String c=a+b;
+
             //CharSequence b=child_text.getText();
-             al.add(a);
+             al.add(c);
+            //al2()
             //Toast.makeText(MainActivity.this, Integer.toString(al(i)), Toast.LENGTH_SHORT).show();
 
         }
@@ -405,8 +402,6 @@ public class MainActivity extends AppCompatActivity {
     //passing user's itinirary to a new activity
     public void im_done(View view) {
 
-
-
         Spinner spinner_departure_cities = (Spinner) findViewById(R.id.departure_cities_spinner);
         Spinner spinner_cabin_class = (Spinner) findViewById(R.id.cabin_class_spinner);
         Spinner spinner_rooms_num = (Spinner) findViewById(R.id.room_num_spinner);
@@ -415,18 +410,57 @@ public class MainActivity extends AppCompatActivity {
         EditText adults_num = (EditText) findViewById(R.id.adultNumber);
         EditText children_num = (EditText) findViewById(R.id.childrenNumber);
         EditText nights_num = (EditText) findViewById(R.id.nightNumber);
+        TextView adults_error_message = (TextView) findViewById(R.id.adults_error_message);
+        TextView nights_error_message = (TextView) findViewById(R.id.adults_error_message);
 
-        Intent imDoneIntent = new Intent (this, ImDoneActivity.class);
-        imDoneIntent.putExtra("departure_city", spinner_departure_cities.getSelectedItem().toString());
-        imDoneIntent.putExtra("cabin_class", spinner_cabin_class.getSelectedItem().toString());
-        imDoneIntent.putExtra("rooms_num", spinner_rooms_num.getSelectedItem().toString());
-        imDoneIntent.putExtra("arriving_city", spinner_arriving_city.getSelectedItem().toString());
-        imDoneIntent.putExtra("selected_date", date_selected.getText().toString());
-        imDoneIntent.putExtra("adults_number",Integer.parseInt(adults_num.getText().toString()));
-        imDoneIntent.putExtra("children_number",Integer.parseInt(children_num.getText().toString()));
-        imDoneIntent.putExtra("nights_number",Integer.parseInt(nights_num.getText().toString()));
+        if ((adults_num.getText().toString()).matches("")||(nights_num.getText().toString()).matches("")) {
+            adults_error_message.setText("Please, enter a number!");
+            nights_error_message.setText("Please, enter a number!");
 
-        startActivity(imDoneIntent);
+        }
+        else {
+
+
+
+            for (int i = 0; i < count; i++) {
+                //LinearLayout child_layout = (LinearLayout) findViewById(i);
+                EditText child_text = (EditText) findViewById(i + 1);
+                Spinner spinner_text = (Spinner) findViewById((i + 1) * 222);
+                String a = child_text.getText().toString();
+                String b = spinner_text.getSelectedItem().toString();
+                String c = a + b;
+
+                //CharSequence b=child_text.getText();
+                al.add(c);
+                //al2()
+                //Toast.makeText(MainActivity.this, Integer.toString(al(i)), Toast.LENGTH_SHORT).show();
+
+            }
+            // Toast.makeText(MainActivity.this, Integer.toString(al.size()), Toast.LENGTH_SHORT).show();
+
+
+            String allItems = ""; //used to display in the toast
+
+            for (String str : al) {
+                allItems = allItems + "\n" + str; //adds a new line between items
+            }
+
+            //Toast.makeText(getApplicationContext(),allItems, Toast.LENGTH_LONG).show();
+
+
+            Intent imDoneIntent = new Intent(this, ImDoneActivity.class);
+            imDoneIntent.putExtra("departure_city", spinner_departure_cities.getSelectedItem().toString());
+            imDoneIntent.putExtra("cabin_class", spinner_cabin_class.getSelectedItem().toString());
+            imDoneIntent.putExtra("rooms_num", spinner_rooms_num.getSelectedItem().toString());
+            imDoneIntent.putExtra("arriving_city", spinner_arriving_city.getSelectedItem().toString());
+            imDoneIntent.putExtra("selected_date", date_selected.getText().toString());
+            imDoneIntent.putExtra("adults_number", Integer.parseInt(adults_num.getText().toString()));
+            imDoneIntent.putExtra("children_number", Integer.parseInt(children_num.getText().toString()));
+            imDoneIntent.putExtra("nights_number", Integer.parseInt(nights_num.getText().toString()));
+            imDoneIntent.putExtra("mylist", al);
+
+            startActivity(imDoneIntent);
+        }
 
 
     }

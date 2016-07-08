@@ -133,8 +133,7 @@
                         android:background="@drawable/spinner_design"
                         android:clickable="false"
                         android:contextClickable="true"
-                        android:minHeight="40dp"
-                        android:popupBackground="#D3D5D3"/>
+                        android:minHeight="40dp" />
                     </FrameLayout>
                 </LinearLayout>
 
@@ -197,12 +196,12 @@
                         android:layout_height="40dp"
                         android:paddingRight="10dp">
 
+
                         <EditText
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:height="40dp"
                             android:paddingLeft="5dp"
-
                             android:inputType="number"
                             android:clickable="true"
                             android:hint="enter a number"
@@ -213,6 +212,15 @@
                             android:background="@drawable/edittext_design" />
 
                     </FrameLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text=""
+                        android:id="@+id/adults_error_message"
+                        android:layout_weight=".5"
+                        android:backgroundTint="#ffffff"
+                        android:textColor="#e03737" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -249,6 +257,15 @@
 
                             android:background="@drawable/edittext_design" />
                     </FrameLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text=""
+                        android:id="@+id/nights_error_message"
+                        android:layout_weight=".5"
+                        android:backgroundTint="#ffffff"
+                        android:textColor="#e03737" />
                 </LinearLayout>
 
                 <LinearLayout

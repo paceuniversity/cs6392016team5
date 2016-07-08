@@ -2,8 +2,6 @@
 
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/departure_city_textview"
-        android:hint="hint"
-        android:textColor="#039"
         android:singleLine="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
