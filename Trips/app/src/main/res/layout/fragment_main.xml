@@ -419,18 +419,21 @@
                 </LinearLayout>
             </LinearLayout>
 
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
             android:layout_marginLeft="10dp"
-            android:id="@+id/addCityLL">
+            android:id="@+id/test">
 
         </LinearLayout>
 
-
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"></LinearLayout>
 
             <LinearLayout
             android:orientation="horizontal"
