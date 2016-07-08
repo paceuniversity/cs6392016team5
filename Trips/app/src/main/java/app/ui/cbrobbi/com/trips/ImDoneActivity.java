@@ -2,6 +2,7 @@ package app.ui.cbrobbi.com.trips;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -9,10 +10,14 @@ import java.util.ArrayList;
 
 public class ImDoneActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_im_done);
+
+        LinearLayout parent_layout = (LinearLayout) findViewById(R.id.parent_layout);
+        TextView data = (TextView) findViewById(R.id.testdata);
 
         TextView departure_city_entry = (TextView) findViewById(R.id.departure_city_entry);
         departure_city_entry.setText(getIntent().getExtras().getString("departure_city"));
@@ -44,9 +49,16 @@ public class ImDoneActivity extends AppCompatActivity {
         ArrayList<String> myList = (ArrayList<String>) getIntent().getSerializableExtra("mylist");
         for(String str : myList){
             allItems = allItems + "\n" + str; //adds a new line between items
+            data.setText(allItems);
         }
 
         Toast.makeText(getApplicationContext(),allItems, Toast.LENGTH_LONG).show();
+
+
+
+       // for(int i=0; i<myList.size();i++){
+
+       // }
 
 }
 }

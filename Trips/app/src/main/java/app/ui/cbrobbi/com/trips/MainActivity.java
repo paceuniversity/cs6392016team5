@@ -222,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
     @SuppressWarnings("deprecation")
     public void setDate(View view) {
         showDialog(999);
-        Toast.makeText(getApplicationContext(), "ca", Toast.LENGTH_SHORT)
+        Toast.makeText(getApplicationContext(), "Pick a date!", Toast.LENGTH_SHORT)
                 .show();
     }
 
@@ -437,8 +437,8 @@ public class MainActivity extends AppCompatActivity {
         TextView nights_error_message = (TextView) findViewById(R.id.adults_error_message);
 
         if ((adults_num.getText().toString()).matches("")||(nights_num.getText().toString()).matches("")) {
-            adults_error_message.setText("Please, enter a number!");
-            nights_error_message.setText("Please, enter a number!");
+            adults_error_message.setText("Enter a number!");
+            nights_error_message.setText("Enter a number!");
 
         }
         else {

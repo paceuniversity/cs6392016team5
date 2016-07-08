@@ -523,11 +523,12 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/imageVie99"/>
-                       // android:src="@drawable/london"
+                        android:id="@+id/imageVie99"
+                        android:src="@drawable/london"
                         android:adjustViewBounds="true"
                         android:scaleType="fitCenter"
-                        android:layout_marginLeft="3dp"                        android:maxHeight="200dp"
+                        android:layout_marginLeft="3dp"
+                        android:maxHeight="200dp"
                         android:maxWidth="130dp"
                         android:layout_marginRight="10dp" />
 
@@ -562,11 +563,12 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/imageView9"/>
-                        //android:src="@drawable/iran"
+                        android:id="@+id/imageView9"
+                        android:src="@drawable/iran"
                         android:adjustViewBounds="true"
                         android:scaleType="fitCenter"
-                        android:layout_marginLeft="3dp"                        android:maxHeight="200dp"
+                        android:layout_marginLeft="3dp"
+                        android:maxHeight="200dp"
                         android:maxWidth="130dp"
                         android:layout_marginRight="10dp" />
 
@@ -601,11 +603,12 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/imageView99"/>
-                        //android:src="@drawable/japan"
+                        android:id="@+id/imageView99"
+                        android:src="@drawable/japan"
                         android:adjustViewBounds="true"
                         android:scaleType="fitCenter"
-                        android:layout_marginLeft="3dp"                        android:maxHeight="200dp"
+                        android:layout_marginLeft="3dp"
+                        android:maxHeight="200dp"
                         android:maxWidth="130dp"
                         android:layout_marginRight="10dp" />
 
