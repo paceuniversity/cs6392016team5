@@ -33,8 +33,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Choose Your Activity!"
-                        android:id="@+id/textView40" />
+                        android:text="Choose Your Activity"
+                        android:id="@+id/textView40"
+                        android:layout_gravity="center_horizontal" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -44,10 +45,10 @@
                     android:layout_marginBottom="15dp">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/imageView40"
-                        android:src="@android:drawable/sym_def_app_icon" />
+                        android:layout_width="187dp"
+                        android:layout_height="124dp"
+                        android:id="@+id/limaImage"
+                        android:src="@drawable/temple_of_pachacamac" />
 
                     <LinearLayout
                         android:orientation="vertical"
@@ -58,15 +59,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Museum"
-                            android:id="@+id/textView41" />
+                            android:text="@string/lima_activity_title"
+                            android:id="@+id/lima1" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Medium Text"
-                            android:id="@+id/textView42" />
+                            android:text="@string/about_lima_activity"
+                            android:id="@+id/lima2" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -87,7 +88,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="$.."
+                        android:text="$60"
                         android:id="@+id/textView43" />
                 </LinearLayout>
 
@@ -167,10 +168,10 @@
                     android:layout_marginBottom="15dp">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/imageView50"
-                        android:src="@android:drawable/sym_def_app_icon" />
+                        android:layout_width="187dp"
+                        android:layout_height="124dp"
+                        android:id="@+id/nazcaImage"
+                        android:src="@drawable/chauchilla" />
 
                     <LinearLayout
                         android:orientation="vertical"
@@ -181,15 +182,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Local Zoo"
-                            android:id="@+id/textView51" />
+                            android:text="@string/nazca_activity_title"
+                            android:id="@+id/nazca1" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Medium Text"
-                            android:id="@+id/textView52" />
+                            android:text="@string/about_nazca_activity"
+                            android:id="@+id/nazca2" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -210,7 +211,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="$.."
+                        android:text="$80"
                         android:id="@+id/textView45" />
                 </LinearLayout>
 

@@ -134,6 +134,9 @@
     <string name="hilton_hotel"><b><i>Hilton Hotel</i></b></string>
     <string name="flying_from"><u>Flying From:</u></string>
     <string name="flying_to"><u>Flying To:</u></string>
+    <string name="lima_activity_title"><b><u>Temple of Pachacamac in Lima!</u></b></string>
+    <string name="nazca_activity_title"><b><u>Cementerio Chauchilla in Nacza!</u></b></string>
+
 
     <string name="about_trump_hotel">The Trump Hotel Collection offers a lifestyle where you can do more,
         experience more and live life without boundaries, limits or compromise. With destinations in New York
@@ -144,6 +147,15 @@
         flagship brand and one of the largest hotel brands in the world. The brand is targeted
         at both business and leisure travelers with locations in major city centers, near airports,
         convention centers, and popular vacation destinations around the world.</string>
+    <string name="about_lima_activity">Join a half day tour to the famous Pachacamac Temple, located only a short distance from Lima.
+        Built by different leaders throughout the centuries and between the years 200 and 1450 AD, this religious compound is made
+        entirely out of clay and houses the giant pyramids of the sun and moon. This comprehensive sightseeing tour will give you an
+        insight on the culture, history and architecture of both the Inca and pre-Inca people.
+    </string>
+
+    <string name="about_nazca_activity">Spookies place in Nazca. This cemetery was discovered in the 1920s, but had
+    not been used since the 9th century AD. The cemetery includes many important burials over a period of 600 to 700 years. The start of the interment
+    was in about 200AD. It is important as a source of archaeology to Nazca culture. </string>
     <string name="date_label_set">Press the button to set the date</string>
     <string name="date_button_set">Set Date</string>
     <string name="date_view_set">The Date is: </string>
