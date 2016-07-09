@@ -1,5 +1,7 @@
 package app.ui.cbrobbi.com.trips;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,6 +11,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.view.Menu;
+import android.view.MenuItem;
 
 public class ShopingCartActivity extends AppCompatActivity {
 
@@ -27,6 +31,38 @@ public class ShopingCartActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        else if(id == R.id.action_cart)
+        {
+            Intent intent = new Intent(this, ShopingCartActivity.class);
+            startActivity(intent);
+        }
+        else if(id == R.id.action_help)
+        {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/paceuniversity/cs6392016team5/wiki"));
+            startActivity(browserIntent);
+        }
+
+
+        return super.onOptionsItemSelected(item);
     }
     public void validateCC(View v)
     {
@@ -99,11 +135,25 @@ public class ShopingCartActivity extends AppCompatActivity {
         }
         if(go == true)
         {
-            Toast.makeText(this,"Good to go",Toast.LENGTH_LONG).show();
+            Intent i = new Intent(Intent.ACTION_SENDTO);
+            i.setType("text/plain");
+
+            try {
+                //startActivity(Intent.createChooser(i, "Your order is processing. A confirmation will arrive shortly."));
+                Toast.makeText(this, "Your order is processing. A confirmation email will arrive shortly..", Toast.LENGTH_SHORT).show();
+            } catch (android.content.ActivityNotFoundException ex) {
+                Toast.makeText(this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+            }
+            lstNm.setText("");
+            fstNm.setText("");
+            email.setText("");
+            zip.setText("");
+            ccNbr.setText("");
         }
         else
         {
-            Toast.makeText(this,"BAd",Toast.LENGTH_LONG).show();
+
+            Toast.makeText(this,"Pleas fix errors in red and resubmit.",Toast.LENGTH_LONG).show();
         }
     }
 }

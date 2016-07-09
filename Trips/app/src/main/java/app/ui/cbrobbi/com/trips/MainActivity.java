@@ -10,6 +10,7 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -69,35 +70,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // switching between with air fragment and without air fragment
-//        RadioGroup with_without_air_radioGroup = (RadioGroup) findViewById(R.id.with_without_air);
-//
-//        with_without_air_radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener()
-//        {
-//            public void onCheckedChanged(RadioGroup group, int checkedId) {
-//                // checkedId is the RadioButton selected
-//
-//                switch(checkedId) {
-//                    case R.id.with_air_button:
-//                        Toast.makeText(MainActivity.this, "with air", Toast.LENGTH_SHORT).show();
-//                        break;
-//                    case R.id.without_air_button:
-//                        Toast.makeText(MainActivity.this, "without air", Toast.LENGTH_SHORT).show();
-//                        break;
-//
-//                }
-//            }
-//        });
-
-
-
-
-
-
-
-
-
-
         travelBuddy = (TextView) findViewById(R.id.travelBuddyText);
         travelBuddy.setOnClickListener(new View.OnClickListener(){
                                            @Override
@@ -108,15 +80,6 @@ public class MainActivity extends AppCompatActivity {
                                        }
 
         );
-        //test1= (Button)findViewById(R.id.test1);
-        //test1.setOnClickListener(new View.OnClickListener(){
-          //  @Override
-            //public void onClick(View v) {
-              //  Intent intent = new Intent(MainActivity.this, HotelUpgradeActivity.class);
-                //startActivity(intent);
-            //}
-        //});
-
         dateView = (TextView) findViewById(R.id.date_selected);
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
@@ -252,6 +215,11 @@ public class MainActivity extends AppCompatActivity {
         {
             Intent intent = new Intent(this, ShopingCartActivity.class);
             startActivity(intent);
+        }
+        else if(id == R.id.action_help)
+        {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/paceuniversity/cs6392016team5/wiki"));
+            startActivity(browserIntent);
         }
 
         return super.onOptionsItemSelected(item);
