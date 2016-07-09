@@ -58,7 +58,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Medium Text"
+                            android:text="Museum"
                             android:id="@+id/textView41" />
 
                         <TextView
@@ -101,48 +101,55 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="9AM"
-                        android:id="@+id/textView33" />
+                        android:id="@+id/textView33"
+                        android:layout_marginRight="40dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="Tour"
-                        android:id="@+id/textView37" />
+                        android:id="@+id/textView37"
+                        android:layout_marginRight="40dp" />
 
                     <Button
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Add"
-                        android:id="@+id/button7" />
+                        android:id="@+id/button7"
+                        android:layout_marginRight="40dp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="40dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="2PM"
-                        android:id="@+id/textView38" />
+                        android:id="@+id/textView38"
+                        android:layout_marginRight="40dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="Tour"
-                        android:id="@+id/textView39" />
+                        android:id="@+id/textView39"
+                        android:layout_marginRight="40dp" />
 
                     <Button
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Add"
-                        android:id="@+id/button8" />
+                        android:id="@+id/button8"
+                        android:layout_marginRight="40dp" />
 
 
 
@@ -174,7 +181,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Medium Text"
+                            android:text="Local Zoo"
                             android:id="@+id/textView51" />
 
                         <TextView
@@ -217,48 +224,55 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="9AM"
-                        android:id="@+id/textView55" />
+                        android:id="@+id/textView55"
+                        android:layout_marginRight="40dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="Tour"
-                        android:id="@+id/textView57" />
+                        android:id="@+id/textView57"
+                        android:layout_marginRight="40dp" />
 
                     <Button
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Add"
-                        android:id="@+id/button56" />
+                        android:id="@+id/button56"
+                        android:layout_marginRight="40dp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="40dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="2PM"
-                        android:id="@+id/textView70" />
+                        android:id="@+id/textView70"
+                        android:layout_marginRight="40dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="Tour"
-                        android:id="@+id/textView71" />
+                        android:id="@+id/textView71"
+                        android:layout_marginRight="40dp" />
 
                     <Button
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Add"
-                        android:id="@+id/button80" />
+                        android:id="@+id/button80"
+                        android:layout_marginRight="40dp" />
 
 
 

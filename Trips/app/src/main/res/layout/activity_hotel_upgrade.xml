@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FF0"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -50,7 +51,8 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/imageView8"/>
+                        android:id="@+id/imageView8"
+                        android:src="@drawable/trump" />
                        // android:src="@drawable/trump"
                         android:adjustViewBounds="true"
                         android:scaleType="fitCenter"
@@ -173,7 +175,9 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/imageView99"/>
+                        android:id="@+id/imageView99"
+                        android:src="@drawable/hiltonhotel"
+                        android:layout_weight="1" />
                         //android:src="@drawable/hiltonhotel"
                         android:adjustViewBounds="true"
                         android:scaleType="fitCenter"
@@ -184,7 +188,8 @@
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
 
                         <TextView
                             android:layout_width="wrap_content"
