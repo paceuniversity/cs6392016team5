@@ -58,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
     Spinner spinner_departure_cities;
     int count=0;
     int i;
-    ArrayList <String> al = new ArrayList();
+    ArrayList <String> cities = new ArrayList();
+    ArrayList <String> nights = new ArrayList();
     Spinner adltCntSpin, roomSpin, chldrnSpin;
 
 
@@ -403,36 +404,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void xxx(View view) {
-        //LinearLayout parent_layout = (LinearLayout) findViewById(R.id.test);
-        //Toast.makeText(MainActivity.this, Integer.toString(parent_layout.getChildCount()), Toast.LENGTH_SHORT).show();
 
-        for (int i = 0; i < count; i++) {
-            //LinearLayout child_layout = (LinearLayout) findViewById(i);
-            EditText child_text = (EditText) findViewById(i+1);
-            Spinner spinner_text = (Spinner) findViewById((i+1)*222);
-            String a=child_text.getText().toString();
-            String b=spinner_text.getSelectedItem().toString();
-            String c=a+b;
-
-            //CharSequence b=child_text.getText();
-             al.add(c);
-            //al2()
-            //Toast.makeText(MainActivity.this, Integer.toString(al(i)), Toast.LENGTH_SHORT).show();
-
-        }
-       // Toast.makeText(MainActivity.this, Integer.toString(al.size()), Toast.LENGTH_SHORT).show();
-
-
-        String allItems = ""; //used to display in the toast
-
-        for(String str : al){
-            allItems = allItems + "\n" + str; //adds a new line between items
-        }
-
-        Toast.makeText(getApplicationContext(),allItems, Toast.LENGTH_LONG).show();
-
-    }
 
     //passing user's itinirary to a new activity
     public void im_done(View view) {
@@ -446,7 +418,7 @@ public class MainActivity extends AppCompatActivity {
         EditText children_num = (EditText) findViewById(R.id.childrenNumber);
         EditText nights_num = (EditText) findViewById(R.id.nightNumber);
         TextView adults_error_message = (TextView) findViewById(R.id.adults_error_message);
-        TextView nights_error_message = (TextView) findViewById(R.id.adults_error_message);
+        TextView nights_error_message = (TextView) findViewById(R.id.nights_error_message);
 
         if ((adults_num.getText().toString()).matches("")||(nights_num.getText().toString()).matches("")) {
             adults_error_message.setText("Enter a number!");
@@ -455,30 +427,33 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
 
-
-
             for (int i = 0; i < count; i++) {
                 //LinearLayout child_layout = (LinearLayout) findViewById(i);
-                EditText child_text = (EditText) findViewById(i + 1);
-                Spinner spinner_text = (Spinner) findViewById((i + 1) * 222);
-                String a = child_text.getText().toString();
-                String b = spinner_text.getSelectedItem().toString();
-                String c = a + b;
+                EditText child_text = (EditText) findViewById(i+1);
+                Spinner spinner_text = (Spinner) findViewById((i+1)*222);
+                String night_number=child_text.getText().toString();
+                String city_name=spinner_text.getSelectedItem().toString();
 
-                //CharSequence b=child_text.getText();
-                al.add(c);
+                cities.add(city_name);
+                nights.add(night_number);
+
                 //al2()
                 //Toast.makeText(MainActivity.this, Integer.toString(al(i)), Toast.LENGTH_SHORT).show();
 
             }
+            nights.add(0,nights_num.getText().toString());
+
+
             // Toast.makeText(MainActivity.this, Integer.toString(al.size()), Toast.LENGTH_SHORT).show();
 
 
             String allItems = ""; //used to display in the toast
 
-            for (String str : al) {
+            for(String str : nights){
                 allItems = allItems + "\n" + str; //adds a new line between items
             }
+
+            Toast.makeText(getApplicationContext(),allItems, Toast.LENGTH_LONG).show();
 
             //Toast.makeText(getApplicationContext(),allItems, Toast.LENGTH_LONG).show();
 
@@ -492,15 +467,16 @@ public class MainActivity extends AppCompatActivity {
             imDoneIntent.putExtra("adults_number", Integer.parseInt(adults_num.getText().toString()));
             imDoneIntent.putExtra("children_number", Integer.parseInt(children_num.getText().toString()));
             imDoneIntent.putExtra("nights_number", Integer.parseInt(nights_num.getText().toString()));
-            imDoneIntent.putExtra("mylist", al);
+            imDoneIntent.putExtra("mylist_nights", nights);
+            imDoneIntent.putExtra("mylist_cities",cities);
 
             startActivity(imDoneIntent);
         }
 
 
-    }
+    }}
 
 
 
 
-}
+
