@@ -701,13 +701,36 @@ public class MainActivity extends AppCompatActivity {
         TextView adults_error_message = (TextView) findViewById(R.id.adults_error_message);
         TextView nights_error_message = (TextView) findViewById(R.id.nights_error_message);
 
-        if ((adults_num.getText().toString()).matches("")||(nights_num.getText().toString()).matches("")) {
+        if ((adults_num.getText().toString()).matches("") || Integer.parseInt(adults_num.getText().toString()) < 1){
             adults_error_message.setText("Enter a number!");
-            nights_error_message.setText("Enter a number!");
+
+            if(Integer.parseInt(nights_num.getText().toString()) < 1)
+            {
+                adults_error_message.setText("Enter a number!");
+            }
+            else
+            {
+                adults_error_message.setText("Enter a number!");
+            }
+        }
+        else if((nights_num.getText().toString()).matches("") || Integer.parseInt(nights_num.getText().toString()) < 1)
+        {
+            if(Integer.parseInt(nights_num.getText().toString()) < 1)
+            {
+                nights_error_message.setText("Atleast 1 Night!");
+            }
+            else
+            {
+                nights_error_message.setText("Enter a number!");
+            }
 
         }
-        else {
-
+        else
+        {
+            if((children_num.getText().toString().matches("")))
+            {
+                children_num.setText("0");
+            }
             for (int i = 0; i < count; i++) {
                 //LinearLayout child_layout = (LinearLayout) findViewById(i);
                 EditText child_text = (EditText) findViewById(i+1);
