@@ -585,10 +585,18 @@
                         android:layout_height="wrap_content"
                         android:text="Book it"
                         android:id="@+id/book_it1_button"
-                        android:onClick="xxx"
+                        android:onClick="setDate1"
                         android:nestedScrollingEnabled="false"
                         android:background="@drawable/button_design"
                         android:textColor="#ffffff" />
+                    <TextView
+                        android:id="@+id/bookItDate1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bookItDate1"
+                        android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:textSize="15dp" />
                 </LinearLayout>
                 <LinearLayout
                     android:orientation="vertical"
@@ -626,8 +634,17 @@
                         android:layout_height="wrap_content"
                         android:text="Book it"
                         android:id="@+id/book_it2_button"
+                        android:onClick="setDate2"
                         android:background="@drawable/button_design"
                         android:textColor="#ffffff" />
+                    <TextView
+                        android:id="@+id/bookItDate2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/date_selected"
+                        android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:textSize="15dp" />
 
                 </LinearLayout>
                 <LinearLayout
@@ -666,9 +683,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Book it"
+                        android:onClick="setDate3"
                         android:id="@+id/book_it3_button"
                         android:background="@drawable/button_design"
                         android:textColor="#ffffff" />
+                    <TextView
+                        android:id="@+id/bookItDate3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/date_selected"
+                        android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:textSize="15dp" />
                 </LinearLayout>
 
 

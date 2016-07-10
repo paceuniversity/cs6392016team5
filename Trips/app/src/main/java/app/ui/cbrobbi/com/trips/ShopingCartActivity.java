@@ -7,12 +7,18 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import org.w3c.dom.Text;
 
 public class ShopingCartActivity extends AppCompatActivity {
 
@@ -23,6 +29,87 @@ public class ShopingCartActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        if (extras != null)
+        {
+            if (extras.containsKey("vacation") && extras.getString("vacation").matches("Going To London for 6 nights on: "))
+            {
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(Toolbar.LayoutParams.WRAP_CONTENT, Toolbar.LayoutParams.FILL_PARENT);
+                params.weight = 1.0f;
+                params.gravity = Gravity.RIGHT;
+                LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(Toolbar.LayoutParams.WRAP_CONTENT, Toolbar.LayoutParams.FILL_PARENT);
+                params.weight = 1.0f;
+                params.gravity = Gravity.RIGHT;
+                TableLayout tl = (TableLayout)findViewById(R.id.product_list);
+                TextView tot = (TextView)findViewById(R.id.totalGoesHear);
+                TableRow tr = new TableRow(this);
+                tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+                TextView tv = new TextView(this);
+                TextView tv2 = new TextView(this);
+                tv.setText(extras.getString("vacation"));
+                tv2.setText(extras.getString("cost"));
+                tot.setText(extras.getString("cost"));
+                tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1f));
+                tv2.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1f));
+                tv.setGravity(Gravity.LEFT);
+                tv2.setGravity(Gravity.RIGHT);
+                tr.addView(tv);
+                tr.addView(tv2);
+                tl.addView(tr, new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
+            }
+            else if (extras.containsKey("vacation") && extras.getString("vacation").matches("Going to the Middle East for 12 nights on: "))
+            {
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(Toolbar.LayoutParams.WRAP_CONTENT, Toolbar.LayoutParams.FILL_PARENT);
+                params.weight = 1.0f;
+                params.gravity = Gravity.RIGHT;
+                LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(Toolbar.LayoutParams.WRAP_CONTENT, Toolbar.LayoutParams.FILL_PARENT);
+                params.weight = 1.0f;
+                params.gravity = Gravity.RIGHT;
+                TableLayout tl = (TableLayout)findViewById(R.id.product_list);
+                TextView tot = (TextView)findViewById(R.id.totalGoesHear);
+                TableRow tr = new TableRow(this);
+                tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+                TextView tv = new TextView(this);
+                TextView tv2 = new TextView(this);
+                tv.setText(extras.getString("vacation"));
+                tv2.setText(extras.getString("cost"));
+                tot.setText(extras.getString("cost"));
+                tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1f));
+                tv2.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1f));
+                tv.setGravity(Gravity.LEFT);
+                tv2.setGravity(Gravity.RIGHT);
+                tr.addView(tv);
+                tr.addView(tv2);
+                tl.addView(tr, new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
+            }
+            else if (extras.containsKey("vacation") && extras.getString("vacation").matches("Going To Asia for 10 nights on: "))
+            {
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(Toolbar.LayoutParams.WRAP_CONTENT, Toolbar.LayoutParams.FILL_PARENT);
+                params.weight = 1.0f;
+                params.gravity = Gravity.RIGHT;
+                LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(Toolbar.LayoutParams.WRAP_CONTENT, Toolbar.LayoutParams.FILL_PARENT);
+                params.weight = 1.0f;
+                params.gravity = Gravity.RIGHT;
+                TableLayout tl = (TableLayout)findViewById(R.id.product_list);
+                TextView tot = (TextView)findViewById(R.id.totalGoesHear);
+                TableRow tr = new TableRow(this);
+                tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+                TextView tv = new TextView(this);
+                TextView tv2 = new TextView(this);
+                tv.setText(extras.getString("vacation"));
+                tv2.setText(extras.getString("cost"));
+                tot.setText(extras.getString("cost"));
+                tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1f));
+                tv2.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1f));
+                tv.setGravity(Gravity.LEFT);
+                tv2.setGravity(Gravity.RIGHT);
+                tr.addView(tv);
+                tr.addView(tv2);
+                tl.addView(tr, new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
+            }
+        }
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

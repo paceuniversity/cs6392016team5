@@ -35,26 +35,10 @@
                     />
                 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:id="@+id/product_list">
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:text="1) Item Description Dynamicall created"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_column="1" />
 
-                        <TextView
-                            android:text="$1000.00"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right"
-                            android:layout_weight="1"
-                            android:layout_column="2" />
-                    </TableRow>
 
                 </TableLayout>
                 <View
@@ -69,6 +53,14 @@
                     android:layout_weight="1"
                     android:text="Total:"
                     android:layout_gravity="left"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/totalGoesHear"
+                    android:text=""
+                    android:layout_gravity="right"
                     />
 
                 <View

@@ -160,5 +160,8 @@
     <string name="date_button_set">Set Date</string>
     <string name="date_view_set">The Date is: </string>
     <string name="date_selected"></string>
+    <string name="bookItDate1"></string>
+    <string name="bookItDate2"></string>
+    <string name="bookItDate3"></string>
     <string name="title_activity_shoping_cart">ShopingCartActivity</string>
 </resources>

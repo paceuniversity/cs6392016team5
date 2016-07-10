@@ -16,6 +16,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -52,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
     private DatePicker datePicker;
     private Calendar calendar;
     private TextView dateView;
+    private TextView dateViewBook1;
+    private TextView dateViewBook2;
+    private TextView dateViewBook3;
     private int year, month, day;
     TextView travelBuddy;
     EditText nightsNumber,nights1,nights2, adult, children, room;
@@ -112,7 +117,11 @@ public class MainActivity extends AppCompatActivity {
             //}
         //});
 
+
         dateView = (TextView) findViewById(R.id.date_selected);
+        dateViewBook1 = (TextView) findViewById(R.id.bookItDate1);
+        dateViewBook2 = (TextView) findViewById(R.id.bookItDate2);
+        dateViewBook3 = (TextView) findViewById(R.id.bookItDate3);
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
 
@@ -220,6 +229,21 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Pick a date!", Toast.LENGTH_SHORT)
                 .show();
     }
+    public void setDate1(View view) {
+        showDialog(998);
+        Toast.makeText(getApplicationContext(), "Pick a date!", Toast.LENGTH_SHORT)
+                .show();
+    }
+    public void setDate2(View view) {
+        showDialog(997);
+        Toast.makeText(getApplicationContext(), "Pick a date!", Toast.LENGTH_SHORT)
+                .show();
+    }
+    public void setDate3(View view) {
+        showDialog(996);
+        Toast.makeText(getApplicationContext(), "Pick a date!", Toast.LENGTH_SHORT)
+                .show();
+    }
 
 
 
@@ -243,6 +267,10 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+        else if (id == R.id.action_cart) {
+            Intent intent = new Intent(this, ShopingCartActivity.class);
+            startActivity(intent);
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -257,6 +285,18 @@ public class MainActivity extends AppCompatActivity {
         if (id == 999) {
             return new DatePickerDialog(this, myDateListener, year, month, day);
         }
+        else if (id == 998)
+        {
+            return new DatePickerDialog(this, myDateListener1, year, month, day);
+        }
+        else if (id == 997)
+        {
+            return new DatePickerDialog(this, myDateListener2, year, month, day);
+        }
+        else if (id == 996)
+        {
+            return new DatePickerDialog(this, myDateListener3, year, month, day);
+        }
         return null;
     }
 
@@ -270,6 +310,36 @@ public class MainActivity extends AppCompatActivity {
             showDate(arg1, arg2+1, arg3);
         }
     };
+    private DatePickerDialog.OnDateSetListener myDateListener1 = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3) {
+            // TODO Auto-generated method stub
+            // arg1 = year
+            // arg2 = month
+            // arg3 = day
+            showDate1(arg1, arg2+1, arg3);
+        }
+    };
+    private DatePickerDialog.OnDateSetListener myDateListener2 = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3) {
+            // TODO Auto-generated method stub
+            // arg1 = year
+            // arg2 = month
+            // arg3 = day
+            showDate2(arg1, arg2+1, arg3);
+        }
+    };
+    private DatePickerDialog.OnDateSetListener myDateListener3 = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3) {
+            // TODO Auto-generated method stub
+            // arg1 = year
+            // arg2 = month
+            // arg3 = day
+            showDate3(arg1, arg2+1, arg3);
+        }
+    };
 
 
     private void showDate(int year, int month, int day) {
@@ -277,8 +347,118 @@ public class MainActivity extends AppCompatActivity {
                 .append(month).append("/").append(year));
     }
 
+    private void showDate1(int year, int month, int day) {
+        final TextView tv1 = (TextView)findViewById(R.id.bookItDate1);
+        topDeals(tv1);
+        dateViewBook1.setText(new StringBuilder().append(day).append("/")
+                .append(month).append("/").append(year));
+    }
+    private void showDate2(int year, int month, int day) {
+        final TextView tv2 = (TextView)findViewById(R.id.bookItDate2);
+        topDeals(tv2);
+        dateViewBook2.setText(new StringBuilder().append(day).append("/")
+                .append(month).append("/").append(year));
+    }
+    private void showDate3(int year, int month, int day) {
+        final TextView tv3 = (TextView)findViewById(R.id.bookItDate3);
+        topDeals(tv3);
+        dateViewBook3.setText(new StringBuilder().append(day).append("/")
+                .append(month).append("/").append(year));
+    }
+    public void topDeals(View view)
+    {
+        final TextView tv1 = (TextView)findViewById(R.id.bookItDate1);
+        final TextView tv2 = (TextView)findViewById(R.id.bookItDate2);
+        final TextView tv3 = (TextView)findViewById(R.id.bookItDate3);
 
 
+
+        tv1.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                if(s.length() != 0)
+                {
+
+                    Intent intent = new Intent(MainActivity.this, ShopingCartActivity.class);
+                    intent.putExtra("vacation","Going to London for 6 nights on: ");
+                    intent.putExtra("cost","$1300");
+                    TextView dateTv = (TextView)findViewById(R.id.bookItDate1);
+                    intent.putExtra("date",dateTv.getText());
+                    startActivity(intent);
+                }
+            }
+        });
+        tv2.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                if(s.length() != 0)
+                {
+
+                    Intent intent = new Intent(MainActivity.this, ShopingCartActivity.class);
+                    intent.putExtra("vacation","Going to the Middle East for 12 nights on: ");
+                    intent.putExtra("cost","$1700");
+                    TextView dateTv = (TextView)findViewById(R.id.bookItDate2);
+                    intent.putExtra("date",dateTv.getText());
+                    startActivity(intent);
+                }
+            }
+        });
+        tv3.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                if(s.length() != 0)
+                {
+
+                    Intent intent = new Intent(MainActivity.this, ShopingCartActivity.class);
+                    intent.putExtra("vacation","Going To Asia for 10 nights on: ");
+                    intent.putExtra("cost","$2900");
+                    TextView dateTv = (TextView)findViewById(R.id.bookItDate3);
+                    intent.putExtra("date",dateTv.getText());
+                    startActivity(intent);
+                }
+            }
+        });
+
+    }
     ///radio button method
     public void radioMethod(View v){
         boolean button =((RadioButton) v).isChecked();
