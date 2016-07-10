@@ -231,17 +231,17 @@ public class MainActivity extends AppCompatActivity {
     }
     public void setDate1(View view) {
         showDialog(998);
-        Toast.makeText(getApplicationContext(), "Pick a date!", Toast.LENGTH_SHORT)
+        Toast.makeText(getApplicationContext(), "Pick a date to leave for your trip!", Toast.LENGTH_SHORT)
                 .show();
     }
     public void setDate2(View view) {
         showDialog(997);
-        Toast.makeText(getApplicationContext(), "Pick a date!", Toast.LENGTH_SHORT)
+        Toast.makeText(getApplicationContext(), "Pick a date to leave for your trip!", Toast.LENGTH_SHORT)
                 .show();
     }
     public void setDate3(View view) {
         showDialog(996);
-        Toast.makeText(getApplicationContext(), "Pick a date!", Toast.LENGTH_SHORT)
+        Toast.makeText(getApplicationContext(), "Pick a date to leave for your trip!", Toast.LENGTH_SHORT)
                 .show();
     }
 
@@ -350,20 +350,30 @@ public class MainActivity extends AppCompatActivity {
     private void showDate1(int year, int month, int day) {
         final TextView tv1 = (TextView)findViewById(R.id.bookItDate1);
         topDeals(tv1);
-        dateViewBook1.setText(new StringBuilder().append(day).append("/")
-                .append(month).append("/").append(year));
+        dateViewBook1.setText(new StringBuilder()
+                .append(month)
+                .append(day)
+                .append("/")
+                .append("/")
+                .append(year));
     }
     private void showDate2(int year, int month, int day) {
         final TextView tv2 = (TextView)findViewById(R.id.bookItDate2);
-        topDeals(tv2);
-        dateViewBook2.setText(new StringBuilder().append(day).append("/")
-                .append(month).append("/").append(year));
+        topDeals2(tv2);
+        dateViewBook2.setText(new StringBuilder().append(month)
+                .append(day)
+                .append("/")
+                .append("/")
+                .append(year));
     }
     private void showDate3(int year, int month, int day) {
         final TextView tv3 = (TextView)findViewById(R.id.bookItDate3);
-        topDeals(tv3);
-        dateViewBook3.setText(new StringBuilder().append(day).append("/")
-                .append(month).append("/").append(year));
+        topDeals3(tv3);
+        dateViewBook3.setText(new StringBuilder().append(month)
+                .append(day)
+                .append("/")
+                .append("/")
+                .append(year));
     }
     public void topDeals(View view)
     {
@@ -396,12 +406,13 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("vacation","Going to London for 6 nights on: ");
                     intent.putExtra("cost","$1300");
                     TextView dateTv = (TextView)findViewById(R.id.bookItDate1);
-                    intent.putExtra("date",dateTv.getText());
+                    intent.putExtra("date",dateTv.getText().toString());
+                    tv1.setVisibility(View.GONE);
                     startActivity(intent);
                 }
             }
         });
-        tv2.addTextChangedListener(new TextWatcher() {
+        /*tv2.addTextChangedListener(new TextWatcher() {
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -424,7 +435,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("vacation","Going to the Middle East for 12 nights on: ");
                     intent.putExtra("cost","$1700");
                     TextView dateTv = (TextView)findViewById(R.id.bookItDate2);
-                    intent.putExtra("date",dateTv.getText());
+                    intent.putExtra("date",dateTv.getText().toString());
                     startActivity(intent);
                 }
             }
@@ -452,7 +463,80 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("vacation","Going To Asia for 10 nights on: ");
                     intent.putExtra("cost","$2900");
                     TextView dateTv = (TextView)findViewById(R.id.bookItDate3);
-                    intent.putExtra("date",dateTv.getText());
+                    intent.putExtra("date",dateTv.getText().toString());
+                    startActivity(intent);
+                }
+            }
+        });*/
+
+    }
+    public void topDeals2(View view)
+    {
+        final TextView tv2 = (TextView)findViewById(R.id.bookItDate2);
+
+
+        tv2.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                if(s.length() != 0)
+                {
+
+                    Intent intent = new Intent(MainActivity.this, ShopingCartActivity.class);
+                    intent.putExtra("vacation","Going to the Middle East for 12 nights on: ");
+                    intent.putExtra("cost","$1700");
+                    TextView dateTv = (TextView)findViewById(R.id.bookItDate2);
+                    intent.putExtra("date",dateTv.getText().toString());
+                    tv2.setVisibility(View.GONE);
+                    startActivity(intent);
+                }
+            }
+        });
+
+
+    }
+    public void topDeals3(View view)
+    {
+
+        final TextView tv3 = (TextView)findViewById(R.id.bookItDate3);
+
+        tv3.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                if(s.length() != 0)
+                {
+
+                    Intent intent = new Intent(MainActivity.this, ShopingCartActivity.class);
+                    intent.putExtra("vacation","Going To Asia for 10 nights on: ");
+                    intent.putExtra("cost","$2900");
+                    TextView dateTv = (TextView)findViewById(R.id.bookItDate3);
+                    intent.putExtra("date",dateTv.getText().toString());
+                    tv3.setVisibility(View.GONE);
                     startActivity(intent);
                 }
             }

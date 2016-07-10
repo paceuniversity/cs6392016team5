@@ -383,6 +383,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/date_selected"
+                                android:onClick="setDate"
                                 android:layout_weight="1"
                                 android:textColor="#000000"
                                 android:textSize="15dp" />
@@ -393,8 +394,7 @@
                                 android:onClick="setDate"
                                 android:layout_weight="0.38"
                                 android:textColor="#ffffff"
-                                android:text="icon"
-                                android:background="@drawable/button_design" />
+                                android:background="@drawable/ic_calendar" />
 
                         </LinearLayout>
 

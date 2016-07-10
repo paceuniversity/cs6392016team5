@@ -34,7 +34,7 @@ public class ShopingCartActivity extends AppCompatActivity {
         Bundle extras = intent.getExtras();
         if (extras != null)
         {
-            if (extras.containsKey("vacation") && extras.getString("vacation").matches("Going To London for 6 nights on: "))
+            if (extras.containsKey("vacation") && extras.getString("vacation").matches("Going to London for 6 nights on: "))
             {
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(Toolbar.LayoutParams.WRAP_CONTENT, Toolbar.LayoutParams.FILL_PARENT);
                 params.weight = 1.0f;
@@ -48,7 +48,7 @@ public class ShopingCartActivity extends AppCompatActivity {
                 tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
                 TextView tv = new TextView(this);
                 TextView tv2 = new TextView(this);
-                tv.setText(extras.getString("vacation"));
+                tv.setText(extras.getString("vacation") + extras.getString("date"));
                 tv2.setText(extras.getString("cost"));
                 tot.setText(extras.getString("cost"));
                 tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1f));
@@ -73,7 +73,7 @@ public class ShopingCartActivity extends AppCompatActivity {
                 tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
                 TextView tv = new TextView(this);
                 TextView tv2 = new TextView(this);
-                tv.setText(extras.getString("vacation"));
+                tv.setText(extras.getString("vacation")+ extras.getString("date"));
                 tv2.setText(extras.getString("cost"));
                 tot.setText(extras.getString("cost"));
                 tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1f));
@@ -98,7 +98,7 @@ public class ShopingCartActivity extends AppCompatActivity {
                 tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
                 TextView tv = new TextView(this);
                 TextView tv2 = new TextView(this);
-                tv.setText(extras.getString("vacation"));
+                tv.setText(extras.getString("vacation")+ extras.getString("date"));
                 tv2.setText(extras.getString("cost"));
                 tot.setText(extras.getString("cost"));
                 tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1f));
