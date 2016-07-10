@@ -63,7 +63,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/price_per_person"
+                            android:id="@+id/total_per_person"
                             android:text="price per person"
                             android:textSize="25dp"
                             android:textColor="#0065b8"
@@ -71,6 +71,16 @@
                             android:textIsSelectable="false"
                             android:textStyle="bold" />
                             </FrameLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/total_per__person"
+                                android:text="price_per_person"
+                                android:textSize="20dp"
+                                android:textColor="#d38d06"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textIsSelectable="false"
+                                android:textStyle="bold" />
 
 
                     </LinearLayout>
@@ -95,6 +105,17 @@
                             android:textIsSelectable="false"
                             android:textStyle="bold" />
                         </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Medium Text"
+                            android:id="@+id/total"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:textColor="#d38d06"
+                            android:textSize="20dp" />
 
                         <TextView
                             android:layout_width="wrap_content"

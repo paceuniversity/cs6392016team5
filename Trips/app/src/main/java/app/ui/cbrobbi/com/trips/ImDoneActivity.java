@@ -163,14 +163,17 @@ public class ImDoneActivity extends AppCompatActivity {
             city.setId(i);
             parent_layout2.addView(city);
             city.setText(myList_cities.get(i));
+
             TextView hotel_desc = new TextView(this);
             hotel_desc.setId(i);
             LayoutParams hotel_desc_params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
             hotel_desc.setTypeface(null, Typeface.BOLD);
             hotel_desc.setTextSize(25);
-            hotel_desc.setLayoutParams(hotel_desc_params);
             hotel_desc.setText("Accomodation");
-            parent_layout.addView(hotel_desc);
+            hotel_desc.setLayoutParams(hotel_desc_params);
+
+
+            parent_layout2.addView(hotel_desc);
 
 
             TextView default_hotel = new TextView(this);
@@ -179,9 +182,8 @@ public class ImDoneActivity extends AppCompatActivity {
             default_hotel.setId(i);
             default_hotel.setTextSize(15);
             default_hotel.setTypeface(null, Typeface.BOLD);
-            hotel_desc.setText("Accomodation");
             default_hotel.setLayoutParams(default_hotel_params);
-            parent_layout.addView(hotel_desc);
+
             String city_name = city.getText().toString();
 
 
@@ -198,6 +200,7 @@ public class ImDoneActivity extends AppCompatActivity {
             upgrade_hotel_button.setLayoutParams(add_hotel_button_params);
             upgrade_hotel_button.setId(i);
             LV22.addView(upgrade_hotel_button);
+            LV11.addView(default_hotel);
 
             switch (city_name) {
                 case "Lima":
@@ -220,7 +223,7 @@ public class ImDoneActivity extends AppCompatActivity {
             act_desc.setTextSize(25);
             act_desc.setLayoutParams(hotel_desc_params);
             act_desc.setText("Activities");
-            parent_layout.addView(act_desc);
+            parent_layout2.addView(act_desc);
 
 
             String upgrade = getIntent().getExtras().getString("upgrade");
@@ -252,6 +255,13 @@ public class ImDoneActivity extends AppCompatActivity {
             }
         });
 
+           int totals = Integer.parseInt(adults_num_entry)*sumOfArray(dd,myList_nights.size()-1)*Integer.parseInt(children_num_entry);
+            TextView total = (TextView) findViewById(R.id.total);
+            total.setText("$ "+ totals);
+            TextView total_per_person = (TextView) findViewById(R.id.total_per_person);
+            int people=(Integer.parseInt(children_num_entry)+Integer.parseInt(adults_num_entry));
+            int pp=totals/people;
+            total_per_person.setText("$ "+ pp);
 
     }}
 

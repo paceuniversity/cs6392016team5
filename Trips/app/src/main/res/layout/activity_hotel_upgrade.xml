@@ -147,7 +147,9 @@
                         android:text="Upgrade"
                         android:id="@+id/upgrade1"
                         android:gravity="center|center_horizontal"
-                        android:nestedScrollingEnabled="true" />
+                        android:nestedScrollingEnabled="true"
+                        android:background="@drawable/button_design"
+                        android:textColor="#ffffff" />
                 </LinearLayout>
 
                 <LinearLayout
