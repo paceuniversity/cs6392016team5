@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     EditText nightsNumber,nights1,nights2, adult, children, room;
     Spinner spinner_departure_cities;
     int count=0;
+    int count2;
     int i;
     ArrayList <String> cities = new ArrayList();
     ArrayList <String> nights = new ArrayList();
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        count2 = 0;
 
         // switching between with air fragment and without air fragment
 //        RadioGroup with_without_air_radioGroup = (RadioGroup) findViewById(R.id.with_without_air);
@@ -584,6 +586,7 @@ public class MainActivity extends AppCompatActivity {
     //add city functionality
     public void add_city(View view) {
         count++;
+        count2++;
         //adding horizontal layout
         LinearLayout LH = new LinearLayout(this);
         LH.setOrientation(LinearLayout.HORIZONTAL);
@@ -591,6 +594,8 @@ public class MainActivity extends AppCompatActivity {
         LH.setMinimumHeight(25);
         LHParams.setMargins(0,0,0,30);
         LH.setLayoutParams(LHParams);
+
+        LH.setId(count2 + 10);
 
         //adding vertical layouts
         LinearLayout LV1 = new LinearLayout(this);
@@ -644,6 +649,13 @@ public class MainActivity extends AppCompatActivity {
         remove_city_button.setText("Remove");
         remove_city_button.setTextColor(Color.parseColor("#FFFFFF"));
         remove_city_button.setLayoutParams(remove_city_button_params);
+        remove_city_button.setId(count2+10);
+        remove_city_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeAddCityLL(v, count2 + 10);
+            }
+        });
 
 
 
@@ -667,7 +679,12 @@ public class MainActivity extends AppCompatActivity {
         //Toast.makeText(MainActivity.this, Integer.toString(count)+Integer.toString(LL.getId())+Integer.toString(edit_text.getId()), Toast.LENGTH_SHORT).show();
 
     }
+    public void removeAddCityLL(View view, int id)
+    {
+        LinearLayout ll = (LinearLayout)findViewById(view.getId());
+        ll.setVisibility(View.GONE);
 
+    }
 
 
     //passing user's itinirary to a new activity
