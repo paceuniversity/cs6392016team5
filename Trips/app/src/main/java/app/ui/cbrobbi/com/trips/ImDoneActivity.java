@@ -3,6 +3,7 @@ package app.ui.cbrobbi.com.trips;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +20,8 @@ public class ImDoneActivity extends AppCompatActivity {
     ArrayList<Date> dates =new ArrayList();
     ArrayList<Integer> dates2 =new ArrayList();
     ArrayList<Integer> myList_nights_int = new ArrayList();
+    ArrayList<Integer> layout_num = new ArrayList();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,7 @@ public class ImDoneActivity extends AppCompatActivity {
         setContentView(R.layout.activity_im_done);
 
         LinearLayout parent_layout = (LinearLayout) findViewById(R.id.parent_layout);
+        LinearLayout parent_layout1 = (LinearLayout) findViewById(R.id.parent_layout1);
         TextView data = (TextView) findViewById(R.id.testdata);
 
         TextView data1 = (TextView) findViewById(R.id.testdata1);
@@ -57,6 +61,19 @@ public class ImDoneActivity extends AppCompatActivity {
         TextView nights_num_entry = (TextView) findViewById(R.id.nights_num_entry);
         nights_num_entry.setText(Integer.toString(getIntent().getExtras().getInt("nights_number")));
 
+        TextView people_num = (TextView) findViewById(R.id.people_num);
+        people_num.setText("for " +adults_num_entry.getText()+ "Adult(s), "+ children_num_entry.getText() +" Child(ren)");
+
+        TextView deparure_city =(TextView) findViewById(R.id.departure_city);
+        deparure_city.setText(departure_city_entry.getText());
+        TextView arrival_city2 =(TextView) findViewById(R.id.arrival_city2);
+        arrival_city2.setText(departure_city_entry.getText());
+
+        TextView deparure_city2 =(TextView) findViewById(R.id.departure_city2);
+        deparure_city2.setText(arriving_city_entry.getText());
+        TextView arrival_city =(TextView) findViewById(R.id.arrival_city);
+        arrival_city.setText(arriving_city_entry.getText());
+
 
         String allItems = "";
         ArrayList<String> myList_nights = (ArrayList<String>) getIntent().getSerializableExtra("mylist_nights");
@@ -84,8 +101,6 @@ public class ImDoneActivity extends AppCompatActivity {
 
         int[] dd= convertIntegers(myList_nights_int);
 
-
-
         for (int i = 0; i < myList_nights.size(); i++) {
 
 
@@ -112,6 +127,20 @@ public class ImDoneActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), all_dates, Toast.LENGTH_SHORT).show();
         }
 
+
+        for (int i=0;i<myList_cities.size(); i++){
+            TextView city = new TextView(this);
+            city.setId(i);
+            parent_layout1.addView(city);
+            layout_num.add(i);
+        }
+
+        for (int i=0;i<myList_cities.size(); i++){
+            TextView city_text = (TextView) findViewById(i);
+                city_text.setText(myList_cities.get(i));
+
+
+        }
 
     }
 

@@ -11,8 +11,6 @@
     android:weightSum="1"
     android:background="@drawable/main_page_background_design">
 
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -52,30 +50,61 @@
                 android:layout_weight="1"
                 android:layout_marginBottom="17dp">
 
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".5">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".8">
+                            <FrameLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
                             android:id="@+id/price_per_person"
-                            android:text="price per person" />
+                            android:text="price per person"
+                            android:textSize="25dp"
+                            android:textColor="#0065b8"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textIsSelectable="false"
+                            android:textStyle="bold" />
+                            </FrameLayout>
+
+
                     </LinearLayout>
+
 
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight=".5">
+                        android:layout_weight=".2">
+                        <FrameLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/total_price"
+                            android:text="total price"
+                            android:textSize="25dp"
+                            android:textColor="#0065B8"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textIsSelectable="false"
+                            android:textStyle="bold" />
+                        </FrameLayout>
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:id="@+id/total_price"
-                            android:text="total price" />
+                            android:text="Medium Text"
+                            android:id="@+id/people_num"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:textColor="#000000" />
 
                     </LinearLayout>
 
@@ -88,24 +117,80 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginBottom="17dp">
-
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginBottom="17dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:id="@+id/flite_info_desc"
-                    android:text="Flight Information" />
-            </LinearLayout>
+                    android:id="@+id/flight_info_desc"
+                    android:text="Flight Information"
+                    android:textColor="#039"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Departure"
+                    android:textSize="20dp"
+                    android:id="@+id/departure_desc"
+                    android:textStyle="bold"
+                    android:textColor="#000000" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/departure_city"
+                    android:text="test" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/arrival_city"
+                    android:text="test" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Return"
+                    android:textSize="20dp"
+                    android:layout_below="@id/departure_desc"
+                    android:id="@+id/return_desc"
+                    android:textStyle="bold"
+                    android:textColor="#000000" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/departure_city2"
+                    android:text="test" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/arrival_city2"
+                    android:text="test" />
 
 
-            <TextView
+                </LinearLayout>
+        </LinearLayout>
+
+
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/departure_city_entry"
         android:text="test" />
-    <TextView
+
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -175,6 +260,14 @@
                 android:id="@+id/testdata2"
                 android:text="data" />
         </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="17dp"
+            android:id="@+id/parent_layout1">
+            </LinearLayout>
 
 
 
