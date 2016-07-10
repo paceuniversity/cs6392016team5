@@ -17,6 +17,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -630,6 +631,8 @@ public class MainActivity extends AppCompatActivity {
 
         EditText edittext_nights = new EditText(this);
         edittext_nights.setId(count);
+        edittext_nights.setText("0");
+        edittext_nights.setInputType(InputType.TYPE_CLASS_NUMBER);
         LayoutParams edittext_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
         edittext_nights.setBackgroundResource(R.drawable.edittext_design);
         edittext_nights.setLayoutParams(edittext_params);
@@ -701,6 +704,14 @@ public class MainActivity extends AppCompatActivity {
         TextView adults_error_message = (TextView) findViewById(R.id.adults_error_message);
         TextView nights_error_message = (TextView) findViewById(R.id.nights_error_message);
 
+        if((adults_num.getText().toString().matches("")))
+        {
+            adults_num.setText("0");
+        }
+        if((nights_num.getText().toString().matches("")))
+        {
+            nights_num.setText("0");
+        }
         if ((adults_num.getText().toString()).matches("") || Integer.parseInt(adults_num.getText().toString()) < 1){
             adults_error_message.setText("Enter a number!");
 
@@ -725,7 +736,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
-        else
+        else if (!(adults_num.getText().toString()).matches("") && !(nights_num.getText().toString()).matches(""))
         {
             if((children_num.getText().toString().matches("")))
             {
