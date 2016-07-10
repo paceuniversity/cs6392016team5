@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF0"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="app.ui.cbrobbi.com.trips.HotelUpgradeActivity">
+    tools:context="app.ui.cbrobbi.com.trips.HotelUpgradeActivity"
+    android:background="@drawable/main_page_background_design">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -32,14 +32,19 @@
                     android:layout_marginBottom="15dp">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Upgrade Your Hotel!"
-                        android:id="@+id/textView24"
-                        android:layout_marginTop="10dp"
-                        android:layout_gravity="center_horizontal"
-                        android:gravity="center_horizontal" />
+                        android:id="@+id/mainpage_title"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:textSize="30dp"
+                        android:textColor="#039"
+                        android:shadowColor="#3524cc"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -53,12 +58,12 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/imageView8"
                         android:src="@drawable/trump" />
-                       // android:src="@drawable/trump"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitCenter"
-                        android:layout_marginLeft="3dp"                        android:maxHeight="200dp"
-                        android:maxWidth="130dp"
-                        android:layout_marginRight="10dp" />
+                    // android:src="@drawable/trump"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:layout_marginLeft="3dp"                        android:maxHeight="200dp"
+                    android:maxWidth="130dp"
+                    android:layout_marginRight="10dp" />
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
@@ -137,12 +142,13 @@
                     android:layout_marginBottom="15dp">
 
                     <Button
-                        style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Upgrade"
                         android:id="@+id/button6"
-                        android:gravity="center|center_horizontal" />
+                        android:gravity="center|center_horizontal"
+                        android:nestedScrollingEnabled="true"
+                        android:onClick="upgrade_hotel"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -178,12 +184,12 @@
                         android:id="@+id/imageView99"
                         android:src="@drawable/hiltonhotel"
                         android:layout_weight="1" />
-                        //android:src="@drawable/hiltonhotel"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitCenter"
-                        android:layout_marginLeft="3dp"                        android:maxHeight="200dp"
-                        android:maxWidth="130dp"
-                        android:layout_marginRight="10dp" />
+                    //android:src="@drawable/hiltonhotel"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:layout_marginLeft="3dp"                        android:maxHeight="200dp"
+                    android:maxWidth="130dp"
+                    android:layout_marginRight="10dp" />
 
                     <LinearLayout
                         android:orientation="vertical"

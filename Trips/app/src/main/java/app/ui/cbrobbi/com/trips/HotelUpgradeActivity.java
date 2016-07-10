@@ -1,5 +1,6 @@
 package app.ui.cbrobbi.com.trips;
 
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -29,6 +30,8 @@ public class HotelUpgradeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hotel_upgrade);
         image1 = (ImageView)findViewById(R.id.imageViewForAppS1);
         image2 = (ImageView)findViewById(R.id.imageViewForAppS2);
+
+        int id_b = getIntent().getExtras().getInt("id");
 
     }
 
@@ -159,6 +162,25 @@ public class HotelUpgradeActivity extends AppCompatActivity {
             image2.setImageBitmap(bitmap);
 
         }
+
+
+
+
+
     }
 
+
+
+    public void upgrade_hotel(View view) {
+
+        Intent upgradeHotelIntent2 = new Intent(this, ImDoneActivity.class);
+        upgradeHotelIntent2.putExtra("upgrade","new hotel");
+        upgradeHotelIntent2.putExtra("id_b", getIntent().getExtras().getInt("id"));
+        upgradeHotelIntent2.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP);
+                //spinner_departure_cities.getSelectedItem().toString());
+        startActivity(upgradeHotelIntent2);
+
+
+
+    }
 }

@@ -1,5 +1,8 @@
 package app.ui.cbrobbi.com.trips;
 
+import android.content.Intent;
+import android.graphics.Color;
+import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,7 +10,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.support.design.widget.AppBarLayout.LayoutParams;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,12 +18,16 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import android.widget.Button;
+
 
 public class ImDoneActivity extends AppCompatActivity {
     ArrayList<Date> dates =new ArrayList();
-    ArrayList<Integer> dates2 =new ArrayList();
+    ArrayList<Integer> ids =new ArrayList();
     ArrayList<Integer> myList_nights_int = new ArrayList();
     ArrayList<Integer> layout_num = new ArrayList();
+    int k;
+   String x=" ";
 
 
     @Override
@@ -29,77 +36,61 @@ public class ImDoneActivity extends AppCompatActivity {
         setContentView(R.layout.activity_im_done);
 
         LinearLayout parent_layout = (LinearLayout) findViewById(R.id.parent_layout);
-        LinearLayout parent_layout1 = (LinearLayout) findViewById(R.id.parent_layout1);
-        TextView data = (TextView) findViewById(R.id.testdata);
-
-        TextView data1 = (TextView) findViewById(R.id.testdata1);
-
-        TextView data2 = (TextView) findViewById(R.id.testdata2);
-
-        TextView departure_city_entry = (TextView) findViewById(R.id.departure_city_entry);
-        departure_city_entry.setText(getIntent().getExtras().getString("departure_city"));
-
-        TextView cabin_class_entry = (TextView) findViewById(R.id.cabin_class_entry);
-        cabin_class_entry.setText(getIntent().getExtras().getString("cabin_class"));
-
-        TextView rooms_num_entry = (TextView) findViewById(R.id.rooms_num_entry);
-        rooms_num_entry.setText(getIntent().getExtras().getString("rooms_num"));
-
-        TextView arriving_city_entry = (TextView) findViewById(R.id.arriving_city_entry);
-        arriving_city_entry.setText(getIntent().getExtras().getString("arriving_city"));
-
-        TextView selected_date_entry = (TextView) findViewById(R.id.selected_date_entry);
-        selected_date_entry.setText(getIntent().getExtras().getString("selected_date"));
+        LinearLayout parent_layout1 = (LinearLayout) findViewById(R.id.parent_layout2);
 
 
-        TextView adults_num_entry = (TextView) findViewById(R.id.adults_num_entry);
-        adults_num_entry.setText(Integer.toString(getIntent().getExtras().getInt("adults_number")));
+        String departure_city_entry = getIntent().getExtras().getString("departure_city");
 
-        TextView children_num_entry = (TextView) findViewById(R.id.children_num_entry);
-        children_num_entry.setText(Integer.toString(getIntent().getExtras().getInt("children_number")));
+        String cabin_class_entry = getIntent().getExtras().getString("cabin_class");
 
-        TextView nights_num_entry = (TextView) findViewById(R.id.nights_num_entry);
-        nights_num_entry.setText(Integer.toString(getIntent().getExtras().getInt("nights_number")));
+        String rooms_num_entry = getIntent().getExtras().getString("rooms_num");
+
+        String arriving_city_entry = getIntent().getExtras().getString("arriving_city");
+
+        String selected_date_entry = getIntent().getExtras().getString("selected_date");
+
+        String adults_num_entry = Integer.toString(getIntent().getExtras().getInt("adults_number"));
+
+        String children_num_entry = Integer.toString(getIntent().getExtras().getInt("children_number"));
+
+        String nights_num_entry = Integer.toString(getIntent().getExtras().getInt("nights_number"));
 
         TextView people_num = (TextView) findViewById(R.id.people_num);
-        people_num.setText("for " +adults_num_entry.getText()+ "Adult(s), "+ children_num_entry.getText() +" Child(ren)");
+        people_num.setText("for " + adults_num_entry + " Adult(s), " + children_num_entry + " Child(ren)");
 
-        TextView deparure_city =(TextView) findViewById(R.id.departure_city);
-        deparure_city.setText(departure_city_entry.getText());
-        TextView arrival_city2 =(TextView) findViewById(R.id.arrival_city2);
-        arrival_city2.setText(departure_city_entry.getText());
+        TextView deparure_city = (TextView) findViewById(R.id.departure_city);
+        deparure_city.setText(departure_city_entry);
+        TextView arrival_city2 = (TextView) findViewById(R.id.arrival_city2);
+        arrival_city2.setText(departure_city_entry);
 
-        TextView deparure_city2 =(TextView) findViewById(R.id.departure_city2);
-        deparure_city2.setText(arriving_city_entry.getText());
-        TextView arrival_city =(TextView) findViewById(R.id.arrival_city);
-        arrival_city.setText(arriving_city_entry.getText());
+        TextView deparure_city2 = (TextView) findViewById(R.id.departure_city2);
+        deparure_city2.setText(arriving_city_entry);
+        TextView arrival_city = (TextView) findViewById(R.id.arrival_city);
+        arrival_city.setText(arriving_city_entry);
 
 
         String allItems = "";
         ArrayList<String> myList_nights = (ArrayList<String>) getIntent().getSerializableExtra("mylist_nights");
-        for (String night : myList_nights) {
-            allItems = allItems + "\n" + night; //adds a new line between items
-            data.setText(allItems);
-        }
+        //for (String night : myList_nights) {
+        // allItems = allItems + "\n" + night; //adds a new line between items
+        // data.setText(allItems);
+        //}
 
-        String all_cities= "";
+
         ArrayList<String> myList_cities = (ArrayList<String>) getIntent().getSerializableExtra("mylist_cities");
-        for (String city : myList_cities) {
-            all_cities = all_cities + "\n" + city; //adds a new line between items
-            data1.setText(all_cities);
-        }
+
 
         Toast.makeText(getApplicationContext(), allItems, Toast.LENGTH_LONG).show();
 
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        String start_date = selected_date_entry.getText().toString();
+        String start_date = selected_date_entry.toString();
 
-        for(String s : myList_nights){
+        for (String s : myList_nights) {
             myList_nights_int.add(Integer.valueOf(s));
         }
 
-        int[] dd= convertIntegers(myList_nights_int);
+        int[] dd = convertIntegers(myList_nights_int);
 
         for (int i = 0; i < myList_nights.size(); i++) {
 
@@ -110,7 +101,7 @@ public class ImDoneActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), date.toString(), Toast.LENGTH_SHORT).show();
                 Calendar c = Calendar.getInstance();
                 c.setTime(date);
-                c.add(Calendar.DATE, sumOfArray(dd,i));
+                c.add(Calendar.DATE, sumOfArray(dd, i));
                 Date dt = c.getTime();
                 dates.add(dt);
 
@@ -118,31 +109,114 @@ public class ImDoneActivity extends AppCompatActivity {
 
             } catch (ParseException e) {
                 e.printStackTrace();
-            }}
+            }
+        }
 
         String all_dates = "";
         for (Date date : dates) {
-            all_dates = all_dates + "\n" + date; //adds a new line between items
-            data2.setText(all_dates);
-            Toast.makeText(getApplicationContext(), all_dates, Toast.LENGTH_SHORT).show();
+            //all_dates = all_dates + "\n" + date; //adds a new line between items
+            //data2.setText(all_dates);
+            //Toast.makeText(getApplicationContext(), all_dates, Toast.LENGTH_SHORT).show();
         }
 
 
-        for (int i=0;i<myList_cities.size(); i++){
+        for (int i = 0; i < myList_cities.size(); i++) {
+            LinearLayout parent_layout2 = (LinearLayout) findViewById(R.id.parent_layout2);
+            TextView city_date = new TextView(this);
+            city_date.setId(i);
+            LayoutParams city_date_params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            city_date.setLayoutParams(city_date_params);
+            String date1 = dates.get(i).toString();
+            String date2 = dates.get(i + 1).toString();
+            city_date.setText((date1.substring(0, 10)) + " - " + (date2.substring(0, 10)) + " " + (date2.substring(24, 28)));
+            parent_layout2.addView(city_date);
             TextView city = new TextView(this);
+            LayoutParams city_params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            city.setLayoutParams(city_params);
             city.setId(i);
-            parent_layout1.addView(city);
-            layout_num.add(i);
+            parent_layout2.addView(city);
+            city.setText(myList_cities.get(i));
+
+            final Button upgrade_hotel_button = new Button(this);
+            final LayoutParams add_hotel_button_params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            upgrade_hotel_button.setBackgroundResource(R.drawable.button_design);
+            upgrade_hotel_button.setText("Upgrade");
+            upgrade_hotel_button.setTextColor(Color.parseColor("#FFFFFF"));
+            upgrade_hotel_button.setLayoutParams(add_hotel_button_params);
+            upgrade_hotel_button.setId(i);
+            parent_layout2.addView(upgrade_hotel_button);
+
+
+
+            TextView default_hotel = new TextView(this);
+            LayoutParams default_hotel_params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            default_hotel.setLayoutParams(default_hotel_params);
+            default_hotel.setId(i);
+            String city_name = city.getText().toString();
+
+
+
+
+
+
+
+
+
+            String upgrade = getIntent().getExtras().getString("upgrade");
+            int b_id = getIntent().getExtras().getInt("id_b");
+            Toast.makeText(getApplicationContext(), Integer.toString(b_id), Toast.LENGTH_LONG).show();
+            String x=Integer.toString(b_id);
+
+            switch(city_name) {
+                case "Lima":
+                    default_hotel.setText("lima default");
+                    break;
+                case "Puno":
+                    default_hotel.setText("Puno default");
+                    break;
+
+            }
+
+            if (!(x.matches(""))) {
+
+
+                int id = b_id;
+                TextView city_specific = (TextView) findViewById(id);
+                default_hotel.setText("mmm");
+            }
+
+
+            parent_layout2.addView(default_hotel);
+
+            upgrade_hotel_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+
+                        upgrade_hotel();
+                        int k=upgrade_hotel_button.getId();
+
+                    Toast.makeText(getApplicationContext(), Integer.toString(k), Toast.LENGTH_LONG).show();
+
+
+
+                }
+            });
+
+
+
         }
+    }
 
-        for (int i=0;i<myList_cities.size(); i++){
-            TextView city_text = (TextView) findViewById(i);
-                city_text.setText(myList_cities.get(i));
+    public void upgrade_hotel() {
 
-
-        }
+        Intent upgradeHotelIntent = new Intent(this, HotelUpgradeActivity.class);
+        upgradeHotelIntent.putExtra("id", k);;
+        startActivity(upgradeHotelIntent);
 
     }
+
+
 
 
     public int sumOfArray(int[] a, int n) {
@@ -156,15 +230,7 @@ public class ImDoneActivity extends AppCompatActivity {
 
     }
 
-    public int sumListRecursive(List<Integer> numbers) {
-        if (numbers.isEmpty() == true ) {
-            return 0;
-        }
-        else {
-            /* removed the print statement from here as it prints each time the function is called and else is executed. */
-            return numbers.get(0) + sumListRecursive(numbers.subList(1, numbers.size()));
-        }
-    }
+
 
     public static int[] convertIntegers(List<Integer> integers)
     {
@@ -175,6 +241,8 @@ public class ImDoneActivity extends AppCompatActivity {
         }
         return ret;
     }
+
+
 
 
 }

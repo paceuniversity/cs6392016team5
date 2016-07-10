@@ -34,13 +34,17 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Find a Travel Buddy"
-                        android:id="@+id/textView17"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="15dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Find a Travel Buddy!"
+                        android:id="@+id/mainpage_title"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:textSize="30dp"
+                        android:textColor="#039"
+                        android:shadowColor="#3524cc"
                         android:textStyle="bold"
-                        android:textColor="#039" />
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="10dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -60,7 +64,8 @@
                         android:scaleType="fitCenter"
                         android:layout_marginLeft="3dp"
                         android:maxHeight="200dp"
-                        android:maxWidth="200dp"/>
+                        android:maxWidth="200dp"
+                        android:layout_marginRight="10dp" />
 
                     <LinearLayout
                         android:orientation="vertical"
@@ -74,15 +79,18 @@
                             android:text="@string/arnold_schwarzenegger"
                             android:id="@+id/textView18"
                             android:textStyle="bold"
-                            android:textColor="#d38d06"
-                            android:textIsSelectable="false" />
+                            android:textColor="#0065B8"
+                            android:textIsSelectable="false"
+                            android:textSize="20dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:id="@+id/textView19"
-                            android:text="@string/about_arnold_schwarzenegger" />
+                            android:text="@string/about_arnold_schwarzenegger"
+                            android:textColor="#000000"
+                            android:textSize="15dp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -91,46 +99,71 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="15dp"
-                    android:gravity="center_horizontal">
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center_horizontal"
+                    android:weightSum="1">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".3">
 
                     <Button
                         style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="SMS"
                         android:id="@+id/buttonSms"
                         android:textColor="#ffffff"
-                        android:background="@drawable/button_design" />
+                        android:background="@drawable/button_design"
+                        android:layout_marginRight="5dp" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3">
                     <Button
                         style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:text="Email"
                         android:id="@+id/buttonEmail"
                         android:textColor="#ffffff"
-                        android:background="@drawable/button_design" />
+                        android:background="@drawable/button_design"
+                        android:layout_marginLeft="2.5dp"
+                        android:layout_marginRight="2.5dp" />
+                            </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".3">
                     <Button
                         style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Call"
                         android:id="@+id/buttonCall"
                         android:textColor="#ffffff"
-                        android:background="@drawable/button_design" />
+                        android:background="@drawable/button_design"
+                        android:layout_gravity="right"
+                        android:layout_marginLeft="5dp" />
+                        </LinearLayout>
                 </LinearLayout>
 
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="4dp"
-                    android:background="@android:color/black"
+                    android:background="#d38d06"
                     android:layout_marginBottom="15dp" />
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="15dp">
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="10dp">
 
 
                     <ImageView
@@ -142,7 +175,8 @@
                         android:scaleType="fitCenter"
                         android:layout_marginLeft="3dp"
                         android:maxHeight="200dp"
-                        android:maxWidth="150dp"/>
+                        android:maxWidth="150dp"
+                        android:layout_marginRight="10dp" />
 
                     <LinearLayout
                         android:orientation="vertical"
@@ -155,15 +189,18 @@
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="@string/tim_cook"
                             android:id="@+id/textView21"
-                            android:textColor="#d38d06"
-                            android:textStyle="bold" />
+                            android:textColor="#0065B8"
+                            android:textStyle="bold"
+                            android:textSize="20dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="@string/about_tim_cook"
-                            android:id="@+id/textView20" />
+                            android:id="@+id/textView20"
+                            android:textSize="15dp"
+                            android:textColor="#000000" />
                     </LinearLayout>
 
 
@@ -179,20 +216,53 @@
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal">
 
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".3">
+
+                        </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/textView"
+                        android:layout_weight=".3" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".3">
+
                     <Button
                         style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="SMS"
                         android:id="@+id/buttonSms2"
-                        android:textColor="#ffffff" />
+                        android:textColor="#ffffff"
+                        android:background="@drawable/button_design"
+                        android:layout_marginRight="2.5dp"
+                        android:layout_marginLeft="2.5dp" />
+                        </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".3">
                     <Button
                         style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Email"
                         android:id="@+id/buttonEmail2"
-                        android:textColor="#ffffff" />
+                        android:textColor="#ffffff"
+                        android:background="@drawable/button_design"
+                        android:layout_marginLeft="5dp" />
+                        </LinearLayout>
 
 
 
