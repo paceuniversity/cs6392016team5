@@ -503,7 +503,7 @@ public class MainActivity extends AppCompatActivity {
         //adding horizontal layout
         LinearLayout LH = new LinearLayout(this);
         LH.setOrientation(LinearLayout.HORIZONTAL);
-        LayoutParams LHParams = new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT);
+        LayoutParams LHParams = new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
         LH.setMinimumHeight(25);
         LHParams.setMargins(0,0,0,30);
         LH.setLayoutParams(LHParams);
@@ -531,7 +531,7 @@ public class MainActivity extends AppCompatActivity {
 
         LinearLayout LV3 = new LinearLayout(this);
         LV3.setOrientation(LinearLayout.VERTICAL);
-        LayoutParams LV3Params = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        LayoutParams LV3Params = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.MATCH_PARENT);
         LV3Params.weight =3f;
         LV3.setLayoutParams(LV3Params);
 
@@ -541,7 +541,7 @@ public class MainActivity extends AppCompatActivity {
 
         EditText edittext_nights = new EditText(this);
         edittext_nights.setId(count);
-        LayoutParams edittext_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+        LayoutParams edittext_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
         edittext_nights.setBackgroundResource(R.drawable.edittext_design);
         edittext_nights.setLayoutParams(edittext_params);
 
@@ -554,7 +554,7 @@ public class MainActivity extends AppCompatActivity {
         spinner_add_city.setBackgroundResource(R.drawable.spinner_design);
         spinner_add_city.setLayoutParams(spiiner_params);
         Button remove_city_button = new Button (this);
-        LayoutParams remove_city_button_params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+        LayoutParams remove_city_button_params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
         remove_city_button.setBackgroundResource(R.drawable.button_design);
         remove_city_button_params.setMargins(0,20,0,20);
         remove_city_button.setText("Remove");

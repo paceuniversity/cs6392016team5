@@ -47,7 +47,7 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:layout_marginBottom="17dp">
                 <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
@@ -60,19 +60,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight=".5">
-                    <FrameLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="40dp">
-                <RadioButton
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="With Air Transfer"
-                    android:id="@+id/with_air_button"
-                    android:layout_weight=".5"
-                    android:onClick="radioMethod"
-                    android:checked="true"
-                    android:buttonTint="#0065B8" />
-                    </FrameLayout>
+                        <FrameLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="40dp">
+                            <RadioButton
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:text="With Air Transfer"
+                                android:id="@+id/with_air_button"
+                                android:layout_weight=".5"
+                                android:onClick="radioMethod"
+                                android:checked="true"
+                                android:buttonTint="#0065B8"
+                                android:textSize="15dp" />
+                        </FrameLayout>
                     </LinearLayout>
 
                     <LinearLayout
@@ -80,21 +81,23 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight=".5">
-                    <FrameLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="40dp">
+                        <FrameLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="40dp">
 
-                <RadioButton
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Without Air Transfer"
-                    android:id="@+id/without_air_button"
-                    android:layout_weight=".5"
-                    android:onClick="radioMethod"
-                    android:buttonTint="#0065B8" />
-                    </FrameLayout>
+                            <RadioButton
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Without Air Transfer"
+                                android:id="@+id/without_air_button"
+                                android:layout_weight=".5"
+                                android:onClick="radioMethod"
+                                android:buttonTint="#0065B8"
+                                android:checked="false"
+                                android:textSize="15dp" />
+                        </FrameLayout>
                     </LinearLayout>
-</RadioGroup>
+                </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
@@ -114,27 +117,29 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="@string/flying_from"
                         android:id="@+id/textView2"
                         android:layout_weight=".5"
                         android:layout_marginBottom="10dp"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
                     <FrameLayout
                         android:layout_width="fill_parent"
                         android:layout_height="40dp">
 
-                    <Spinner
-                        android:layout_width="fill_parent"
-                        android:layout_height="40dp"
-                        android:id="@+id/departure_cities_spinner"
-                        android:entries="@array/cities"
-                        android:layout_weight=".5"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/spinner_design"
-                        android:clickable="false"
-                        android:contextClickable="true"
-                        android:minHeight="40dp" />
+                        <Spinner
+                            android:layout_width="fill_parent"
+                            android:layout_height="40dp"
+                            android:id="@+id/departure_cities_spinner"
+                            android:entries="@array/cities"
+                            android:layout_weight=".5"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/spinner_design"
+                            android:clickable="false"
+                            android:contextClickable="true"
+                            android:minHeight="40dp" />
                     </FrameLayout>
                 </LinearLayout>
 
@@ -148,25 +153,27 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="Cabin Class: "
                         android:id="@+id/textView3"
                         android:layout_weight=".5"
                         android:layout_marginBottom="10dp"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
                     <FrameLayout
                         android:layout_width="fill_parent"
                         android:layout_height="40dp">
 
-                    <Spinner
-                        android:layout_width="fill_parent"
-                        android:layout_height="40dp"
-                        android:id="@+id/cabin_class_spinner"
-                        android:entries="@array/classes"
-                        android:layout_weight=".5"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/spinner_design"
-                        android:minHeight="40dp" />
+                        <Spinner
+                            android:layout_width="fill_parent"
+                            android:layout_height="40dp"
+                            android:id="@+id/cabin_class_spinner"
+                            android:entries="@array/classes"
+                            android:layout_weight=".5"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/spinner_design"
+                            android:minHeight="40dp" />
                     </FrameLayout>
 
 
@@ -420,8 +427,8 @@
                             android:inputType="number"
                             android:clickable="true"
                             android:cursorVisible="false"
-                            android:hint="enter a number of nights"
-                            android:paddingLeft="5dp"
+                            android:hint="enter a number"
+                            android:paddingLeft="10dp"
                             android:layout_weight=".3"
                             android:background="@drawable/edittext_design"
                             android:textSize="15dp" />
@@ -431,15 +438,15 @@
                 </LinearLayout>
             </LinearLayout>
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".5"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/parent_layout">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/parent_layout">
 
-        </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -448,11 +455,11 @@
                 android:layout_weight="1"></LinearLayout>
 
             <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="17dp"
-            android:layout_weight="1">
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="17dp"
+                android:layout_weight="1">
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -460,22 +467,22 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".5">
 
-                <FrameLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="40dp"
-                    android:paddingRight="20dp">
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:paddingRight="20dp">
 
 
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Add City"
-                android:id="@+id/add_city"
-                android:layout_weight=".5"
-                android:textColor="#ffffff"
-                android:background="@drawable/button_design"
-                android:onClick="add_city"/>
-                </FrameLayout>
+                        <Button
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Add City"
+                            android:id="@+id/add_city"
+                            android:layout_weight=".5"
+                            android:textColor="#ffffff"
+                            android:background="@drawable/button_design"
+                            android:onClick="add_city"/>
+                    </FrameLayout>
                 </LinearLayout>
                 <LinearLayout
                     android:orientation="vertical"
@@ -483,24 +490,24 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".5">
 
-                <FrameLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="40dp"
-                    android:paddingLeft="20dp">
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="I'm done"
-                android:id="@+id/im_done_button"
-                android:textColor="#ffffff"
-                android:layout_weight=".5"
-                android:onClick="im_done"
-                android:nestedScrollingEnabled="false"
-                android:background="@drawable/button_design"/>
-                </FrameLayout>
-                    </LinearLayout>
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:paddingLeft="20dp">
+                        <Button
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="I'm done"
+                            android:id="@+id/im_done_button"
+                            android:textColor="#ffffff"
+                            android:layout_weight=".5"
+                            android:onClick="im_done"
+                            android:nestedScrollingEnabled="false"
+                            android:background="@drawable/button_design"/>
+                    </FrameLayout>
+                </LinearLayout>
 
-        </LinearLayout>
+            </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
@@ -646,6 +653,7 @@
                         android:textColor="#000000"
                         android:textSize="15dp" />
 
+
                 </LinearLayout>
                 <LinearLayout
                     android:orientation="vertical"
@@ -695,6 +703,7 @@
                         android:layout_weight="1"
                         android:textColor="#000000"
                         android:textSize="15dp" />
+
                 </LinearLayout>
 
 
