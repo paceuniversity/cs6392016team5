@@ -145,10 +145,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Upgrade"
-                        android:id="@+id/button6"
+                        android:id="@+id/upgrade1"
                         android:gravity="center|center_horizontal"
-                        android:nestedScrollingEnabled="true"
-                        android:onClick="upgrade_hotel"/>
+                        android:nestedScrollingEnabled="true" />
                 </LinearLayout>
 
                 <LinearLayout

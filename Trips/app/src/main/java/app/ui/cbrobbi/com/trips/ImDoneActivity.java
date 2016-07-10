@@ -2,6 +2,7 @@ package app.ui.cbrobbi.com.trips;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,7 +28,7 @@ public class ImDoneActivity extends AppCompatActivity {
     ArrayList<Integer> myList_nights_int = new ArrayList();
     ArrayList<Integer> layout_num = new ArrayList();
     int k;
-   String x=" ";
+
 
 
     @Override
@@ -125,94 +126,141 @@ public class ImDoneActivity extends AppCompatActivity {
             TextView city_date = new TextView(this);
             city_date.setId(i);
             LayoutParams city_date_params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            city_date.setTypeface(null, Typeface.BOLD);
+            city_date.setTextSize(30);
+
+
             city_date.setLayoutParams(city_date_params);
             String date1 = dates.get(i).toString();
             String date2 = dates.get(i + 1).toString();
             city_date.setText((date1.substring(0, 10)) + " - " + (date2.substring(0, 10)) + " " + (date2.substring(24, 28)));
             parent_layout2.addView(city_date);
+
+            LinearLayout LH1 = new LinearLayout(this);
+            LH1.setOrientation(LinearLayout.HORIZONTAL);
+            LayoutParams LHParams = new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            LH1.setLayoutParams(LHParams);
+
+
+            LinearLayout LV11 = new LinearLayout(this);
+            LV11.setOrientation(LinearLayout.VERTICAL);
+            LayoutParams LV11Params = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
+            LV11Params.weight = 7f;
+            LV11.setLayoutParams(LV11Params);
+            LinearLayout LV22 = new LinearLayout(this);
+            LV22.setOrientation(LinearLayout.VERTICAL);
+            LayoutParams LV22Params = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
+            LV22Params.weight = 3f;
+            LV22.setLayoutParams(LV22Params);
+
+
             TextView city = new TextView(this);
             LayoutParams city_params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            city.setTypeface(null, Typeface.BOLD);
+            city_date.setTextSize(25);
+            city.setTextSize(25);
             city.setLayoutParams(city_params);
             city.setId(i);
             parent_layout2.addView(city);
             city.setText(myList_cities.get(i));
+            TextView hotel_desc = new TextView(this);
+            hotel_desc.setId(i);
+            LayoutParams hotel_desc_params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            hotel_desc.setTypeface(null, Typeface.BOLD);
+            hotel_desc.setTextSize(25);
+            hotel_desc.setLayoutParams(hotel_desc_params);
+            hotel_desc.setText("Accomodation");
+            parent_layout.addView(hotel_desc);
+
+
+            TextView default_hotel = new TextView(this);
+            LayoutParams default_hotel_params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+
+            default_hotel.setId(i);
+            default_hotel.setTextSize(15);
+            default_hotel.setTypeface(null, Typeface.BOLD);
+            hotel_desc.setText("Accomodation");
+            default_hotel.setLayoutParams(default_hotel_params);
+            parent_layout.addView(hotel_desc);
+            String city_name = city.getText().toString();
+
+
+            parent_layout2.addView(LH1);
+            LH1.addView(LV11);
+            LH1.addView(LV22);
+
 
             final Button upgrade_hotel_button = new Button(this);
-            final LayoutParams add_hotel_button_params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            LayoutParams add_hotel_button_params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
             upgrade_hotel_button.setBackgroundResource(R.drawable.button_design);
             upgrade_hotel_button.setText("Upgrade");
             upgrade_hotel_button.setTextColor(Color.parseColor("#FFFFFF"));
             upgrade_hotel_button.setLayoutParams(add_hotel_button_params);
             upgrade_hotel_button.setId(i);
-            parent_layout2.addView(upgrade_hotel_button);
+            LV22.addView(upgrade_hotel_button);
+
+            switch (city_name) {
+                case "Lima":
+                    default_hotel.setText("Hotel Sheraton - Lima");
+                    break;
+                case "Puno":
+                    default_hotel.setText("Tierra Viva Puno Plaza Hotel");
+                    break;
+                case "Cusco":
+                    default_hotel.setText("Hotel Rumi Punku");
+                    break;
+
+            }
 
 
-
-            TextView default_hotel = new TextView(this);
-            LayoutParams default_hotel_params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-            default_hotel.setLayoutParams(default_hotel_params);
-            default_hotel.setId(i);
-            String city_name = city.getText().toString();
-
-
-
-
-
-
-
+            TextView act_desc = new TextView(this);
+            hotel_desc.setId(i);
+            LayoutParams act_desc_params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            act_desc.setTypeface(null, Typeface.BOLD);
+            act_desc.setTextSize(25);
+            act_desc.setLayoutParams(hotel_desc_params);
+            act_desc.setText("Activities");
+            parent_layout.addView(act_desc);
 
 
             String upgrade = getIntent().getExtras().getString("upgrade");
             int b_id = getIntent().getExtras().getInt("id_b");
             Toast.makeText(getApplicationContext(), Integer.toString(b_id), Toast.LENGTH_LONG).show();
-            String x=Integer.toString(b_id);
 
-            switch(city_name) {
-                case "Lima":
-                    default_hotel.setText("lima default");
-                    break;
-                case "Puno":
-                    default_hotel.setText("Puno default");
-                    break;
+
+
+            if (b_id>222) {
+                default_hotel.setText("test");
 
             }
 
-            if (!(x.matches(""))) {
 
 
-                int id = b_id;
-                TextView city_specific = (TextView) findViewById(id);
-                default_hotel.setText("mmm");
+        upgrade_hotel_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                int k=upgrade_hotel_button.getId();
+
+                Toast.makeText(getApplicationContext(), Integer.toString(k), Toast.LENGTH_LONG).show();
+                Intent upgradeHotelIntent = new Intent(ImDoneActivity.this, HotelUpgradeActivity.class);
+                upgradeHotelIntent.putExtra("id", k);
+                ImDoneActivity.this.startActivity(upgradeHotelIntent);
+
+
+
             }
+        });
 
 
-            parent_layout2.addView(default_hotel);
-
-            upgrade_hotel_button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-
-                        upgrade_hotel();
-                        int k=upgrade_hotel_button.getId();
-
-                    Toast.makeText(getApplicationContext(), Integer.toString(k), Toast.LENGTH_LONG).show();
-
-
-
-                }
-            });
-
-
-
-        }
-    }
+    }}
 
     public void upgrade_hotel() {
 
         Intent upgradeHotelIntent = new Intent(this, HotelUpgradeActivity.class);
-        upgradeHotelIntent.putExtra("id", k);;
+        upgradeHotelIntent.putExtra("id", k);
         startActivity(upgradeHotelIntent);
+
 
     }
 

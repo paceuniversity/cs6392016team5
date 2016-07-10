@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,6 +25,9 @@ public class HotelUpgradeActivity extends AppCompatActivity {
     String site2 = "https://raw.githubusercontent.com/ba8768/CS6392016/master/HiltonPicture.png";
 
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +35,25 @@ public class HotelUpgradeActivity extends AppCompatActivity {
         image1 = (ImageView)findViewById(R.id.imageViewForAppS1);
         image2 = (ImageView)findViewById(R.id.imageViewForAppS2);
 
-        int id_b = getIntent().getExtras().getInt("id");
+        final int id = getIntent().getExtras().getInt("id");
 
+        Button upgrade1 = (Button) findViewById(R.id.upgrade1);
+
+        upgrade1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent upgradeHotelIntent2 = new Intent(HotelUpgradeActivity.this, ImDoneActivity.class);
+                upgradeHotelIntent2.putExtra("upgrade","new hotel");
+                int n=id+222;
+                upgradeHotelIntent2.putExtra("id_b", n);
+                upgradeHotelIntent2.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP);
+                startActivity(upgradeHotelIntent2);
+
+
+            }
+
+
+        });
     }
 
     public void prcoessFour (View v){
@@ -172,13 +193,6 @@ public class HotelUpgradeActivity extends AppCompatActivity {
 
 
     public void upgrade_hotel(View view) {
-
-        Intent upgradeHotelIntent2 = new Intent(this, ImDoneActivity.class);
-        upgradeHotelIntent2.putExtra("upgrade","new hotel");
-        upgradeHotelIntent2.putExtra("id_b", getIntent().getExtras().getInt("id"));
-        upgradeHotelIntent2.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP);
-                //spinner_departure_cities.getSelectedItem().toString());
-        startActivity(upgradeHotelIntent2);
 
 
 
